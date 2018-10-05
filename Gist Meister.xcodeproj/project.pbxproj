@@ -12,7 +12,6 @@
 		421DB2D4216777040029BB85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421DB2D2216777040029BB85 /* Main.storyboard */; };
 		421DB2D9216777060029BB85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421DB2D7216777060029BB85 /* LaunchScreen.storyboard */; };
 		42465D9C216778450007E8D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42465D9A216778450007E8D6 /* Assets.xcassets */; };
-		42465D9D216778450007E8D6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42465D9B216778450007E8D6 /* Info.plist */; };
 		427F4FA421677E2300FC1B11 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427F4FA321677E2300FC1B11 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,13 +46,6 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
-		420097A321677DCE00B1C7A1 /* CodeScanner */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CodeScanner;
-			sourceTree = "<group>";
-		};
 		421DB2C2216777040029BB85 = {
 			isa = PBXGroup;
 			children = (
@@ -75,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				420097A221677D8A00B1C7A1 /* Login */,
-				420097A321677DCE00B1C7A1 /* CodeScanner */,
 				421DB2CE216777040029BB85 /* AppDelegate.swift */,
 				421DB2D2216777040029BB85 /* Main.storyboard */,
 				421DB2D7216777060029BB85 /* LaunchScreen.storyboard */,
@@ -119,7 +110,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Dennis;
 				TargetAttributes = {
 					421DB2CA216777040029BB85 = {
@@ -152,7 +143,6 @@
 			files = (
 				421DB2D9216777060029BB85 /* LaunchScreen.storyboard in Resources */,
 				42465D9C216778450007E8D6 /* Assets.xcassets in Resources */,
-				42465D9D216778450007E8D6 /* Info.plist in Resources */,
 				421DB2D4216777040029BB85 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
