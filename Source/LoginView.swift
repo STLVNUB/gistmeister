@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginView.swift
 //  Gist Meister
 //
 //  Created by Dennis on 05/10/2018.
@@ -8,9 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginView: UIViewController {
+    // Interface outlets
     @IBOutlet weak var usernameTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
+    
+    // Object instances
+    let loginViewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,5 +27,6 @@ class ViewController: UIViewController {
     }
 
     @IBAction func doneButtonPressed(_ sender: Any) {
+        print("Done button")
     }
 }
