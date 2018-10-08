@@ -12,8 +12,10 @@
 		421DB2D4216777040029BB85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421DB2D2216777040029BB85 /* Main.storyboard */; };
 		421DB2D9216777060029BB85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421DB2D7216777060029BB85 /* LaunchScreen.storyboard */; };
 		42465D9C216778450007E8D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42465D9A216778450007E8D6 /* Assets.xcassets */; };
-		424774F4216B3D9600DBB60F /* Podfile in Sources */ = {isa = PBXBuildFile; fileRef = 424774F3216B3D9600DBB60F /* Podfile */; };
 		427F4FA421677E2300FC1B11 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427F4FA321677E2300FC1B11 /* LoginViewModel.swift */; };
+		429CBF02216B729F00B2D7B1 /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CBF01216B729F00B2D7B1 /* TransactionManager.swift */; };
+		429CBF06216B7CFF00B2D7B1 /* GitHubModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CBF04216B7CFF00B2D7B1 /* GitHubModelUser.swift */; };
+		429CBF07216B7CFF00B2D7B1 /* GitHubModelUserPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CBF05216B7CFF00B2D7B1 /* GitHubModelUserPlan.swift */; };
 		E0684E59CEB440D5E875DED8 /* Pods_Gist_Meister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162F913D74B5659C6B98E69A /* Pods_Gist_Meister.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,8 +29,10 @@
 		421DB2D8216777060029BB85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42465D9A216778450007E8D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Source/Assets.xcassets; sourceTree = "<group>"; };
 		42465D9B216778450007E8D6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
-		424774F3216B3D9600DBB60F /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		427F4FA321677E2300FC1B11 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		429CBF01216B729F00B2D7B1 /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
+		429CBF04216B7CFF00B2D7B1 /* GitHubModelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubModelUser.swift; sourceTree = "<group>"; };
+		429CBF05216B7CFF00B2D7B1 /* GitHubModelUserPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubModelUserPlan.swift; sourceTree = "<group>"; };
 		6D9C08E72A8660EE29D3A48A /* Pods-Gist Meister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist Meister.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gist Meister/Pods-Gist Meister.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,8 +79,10 @@
 		421DB2CD216777040029BB85 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				429CBF03216B7BEA00B2D7B1 /* Models */,
 				420097A221677D8A00B1C7A1 /* Login */,
 				421DB2CE216777040029BB85 /* AppDelegate.swift */,
+				429CBF01216B729F00B2D7B1 /* TransactionManager.swift */,
 				421DB2D2216777040029BB85 /* Main.storyboard */,
 				421DB2D7216777060029BB85 /* LaunchScreen.storyboard */,
 			);
@@ -88,9 +94,25 @@
 			children = (
 				42465D9A216778450007E8D6 /* Assets.xcassets */,
 				42465D9B216778450007E8D6 /* Info.plist */,
-				424774F3216B3D9600DBB60F /* Podfile */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		429CBF03216B7BEA00B2D7B1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				429CBF08216B7E1300B2D7B1 /* User */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		429CBF08216B7E1300B2D7B1 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				429CBF04216B7CFF00B2D7B1 /* GitHubModelUser.swift */,
+				429CBF05216B7CFF00B2D7B1 /* GitHubModelUserPlan.swift */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 		656C5629B38E3043E789093D /* Frameworks */ = {
@@ -205,10 +227,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Gist Meister/Pods-Gist Meister-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -223,9 +247,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				421DB2D1216777040029BB85 /* LoginView.swift in Sources */,
+				429CBF06216B7CFF00B2D7B1 /* GitHubModelUser.swift in Sources */,
+				429CBF07216B7CFF00B2D7B1 /* GitHubModelUserPlan.swift in Sources */,
 				421DB2CF216777040029BB85 /* AppDelegate.swift in Sources */,
 				427F4FA421677E2300FC1B11 /* LoginViewModel.swift in Sources */,
-				424774F4216B3D9600DBB60F /* Podfile in Sources */,
+				429CBF02216B729F00B2D7B1 /* TransactionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
