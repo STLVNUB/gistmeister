@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
 
 
 class LoginView: UIViewController {
@@ -24,6 +22,7 @@ class LoginView: UIViewController {
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {
+        // Check if both credentials are available
         if let username = usernameTextfield.text, let password = passwordTextfield.text {
             TransactionManager.shared.basicAuthentication(username: username, password: password, completion: { json in
                 print(json)
