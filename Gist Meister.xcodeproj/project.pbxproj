@@ -79,8 +79,8 @@
 		421DB2CD216777040029BB85 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				42F5AB2E216B82A700E0827D /* View Controllers */,
 				429CBF03216B7BEA00B2D7B1 /* Models */,
-				420097A221677D8A00B1C7A1 /* Login */,
 				421DB2CE216777040029BB85 /* AppDelegate.swift */,
 				429CBF01216B729F00B2D7B1 /* TransactionManager.swift */,
 				421DB2D2216777040029BB85 /* Main.storyboard */,
@@ -113,6 +113,14 @@
 				429CBF05216B7CFF00B2D7B1 /* GitHubModelUserPlan.swift */,
 			);
 			name = User;
+			sourceTree = "<group>";
+		};
+		42F5AB2E216B82A700E0827D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				420097A221677D8A00B1C7A1 /* Login */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		656C5629B38E3043E789093D /* Frameworks */ = {

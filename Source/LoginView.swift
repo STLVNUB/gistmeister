@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 
 class LoginView: UIViewController {
@@ -24,8 +25,8 @@ class LoginView: UIViewController {
     
     @IBAction func doneButtonPressed(_ sender: Any) {
         if let username = usernameTextfield.text, let password = passwordTextfield.text {
-            TransactionManager.shared.basicAuthentication(username: username, password: password, completion: { response in
-                //print(response)
+            TransactionManager.shared.basicAuthentication(username: username, password: password, completion: { json in
+                print(json)
             })
         }
     }
