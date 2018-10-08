@@ -11,6 +11,7 @@ import Alamofire
 
 
 class TransactionManager: NSObject {
+    
     static let shared = TransactionManager()
     
     func basicAuthentication(username: String, password: String, completion: (String)->()) {

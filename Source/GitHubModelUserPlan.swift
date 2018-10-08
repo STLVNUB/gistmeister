@@ -7,13 +7,12 @@ import SwiftyJSON
 
 
 class GitHubModelUserPlan : NSObject, NSCoding{
-
+    
 	var collaborators : Int!
 	var name : String!
 	var privateRepos : Int!
 	var space : Int!
-
-
+    
 	/**
 	 * Instantiate the instance using the passed json values to set the properties values
 	 */
@@ -26,7 +25,7 @@ class GitHubModelUserPlan : NSObject, NSCoding{
 		privateRepos = json["private_repos"].intValue
 		space = json["space"].intValue
 	}
-
+    
 	/**
 	 * Returns all the available property values in the form of [String:Any] object where the key is the approperiate json key and the value is the value of the corresponding property
 	 */
@@ -47,7 +46,7 @@ class GitHubModelUserPlan : NSObject, NSCoding{
 		}
 		return dictionary
 	}
-
+    
     /**
     * NSCoding required initializer.
     * Fills the data from the passed decoder
@@ -60,7 +59,7 @@ class GitHubModelUserPlan : NSObject, NSCoding{
          space = aDecoder.decodeObject(forKey: "space") as? Int
 
 	}
-
+    
     /**
     * NSCoding required method.
     * Encodes mode properties into the decoder
@@ -79,7 +78,5 @@ class GitHubModelUserPlan : NSObject, NSCoding{
 		if space != nil{
 			aCoder.encode(space, forKey: "space")
 		}
-
 	}
-
 }

@@ -7,7 +7,7 @@ import SwiftyJSON
 
 
 class GitHubModelUser : NSObject, NSCoding{
-
+    
 	var avatarUrl : String!
 	var bio : String!
 	var blog : String!
@@ -46,8 +46,7 @@ class GitHubModelUser : NSObject, NSCoding{
 	var type : String!
 	var updatedAt : String!
 	var url : String!
-
-
+    
 	/**
 	 * Instantiate the instance using the passed json values to set the properties values
 	 */
@@ -97,7 +96,7 @@ class GitHubModelUser : NSObject, NSCoding{
 		updatedAt = json["updated_at"].stringValue
 		url = json["url"].stringValue
 	}
-
+    
 	/**
 	 * Returns all the available property values in the form of [String:Any] object where the key is the approperiate json key and the value is the value of the corresponding property
 	 */
@@ -220,7 +219,7 @@ class GitHubModelUser : NSObject, NSCoding{
 		}
 		return dictionary
 	}
-
+    
     /**
     * NSCoding required initializer.
     * Fills the data from the passed decoder
@@ -265,9 +264,8 @@ class GitHubModelUser : NSObject, NSCoding{
          type = aDecoder.decodeObject(forKey: "type") as? String
          updatedAt = aDecoder.decodeObject(forKey: "updated_at") as? String
          url = aDecoder.decodeObject(forKey: "url") as? String
-
 	}
-
+    
     /**
     * NSCoding required method.
     * Encodes mode properties into the decoder
@@ -388,7 +386,5 @@ class GitHubModelUser : NSObject, NSCoding{
 		if url != nil{
 			aCoder.encode(url, forKey: "url")
 		}
-
 	}
-
 }
