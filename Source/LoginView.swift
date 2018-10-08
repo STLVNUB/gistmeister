@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginView: UIViewController {
     // Interface outlets
@@ -19,6 +20,12 @@ class LoginView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        Alamofire.request("https://github.com/login/oauth/authorize?scope=nil&client_id=9d431e9831a37d04877d").responseJSON { response in
+            print("Request: \(String(describing: response.request))")
+            print("Response: \(String(describing: response.response))")
+            print("Result: \(response.result)")
+        }
     }
 
     override func didReceiveMemoryWarning() {

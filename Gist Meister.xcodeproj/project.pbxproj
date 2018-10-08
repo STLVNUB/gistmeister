@@ -12,10 +12,14 @@
 		421DB2D4216777040029BB85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421DB2D2216777040029BB85 /* Main.storyboard */; };
 		421DB2D9216777060029BB85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421DB2D7216777060029BB85 /* LaunchScreen.storyboard */; };
 		42465D9C216778450007E8D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42465D9A216778450007E8D6 /* Assets.xcassets */; };
+		424774F4216B3D9600DBB60F /* Podfile in Sources */ = {isa = PBXBuildFile; fileRef = 424774F3216B3D9600DBB60F /* Podfile */; };
 		427F4FA421677E2300FC1B11 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427F4FA321677E2300FC1B11 /* LoginViewModel.swift */; };
+		E0684E59CEB440D5E875DED8 /* Pods_Gist_Meister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162F913D74B5659C6B98E69A /* Pods_Gist_Meister.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		162F913D74B5659C6B98E69A /* Pods_Gist_Meister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gist_Meister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A1F678FC26DEB37D0D63256 /* Pods-Gist Meister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist Meister.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gist Meister/Pods-Gist Meister.debug.xcconfig"; sourceTree = "<group>"; };
 		421DB2CB216777040029BB85 /* Gist Meister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gist Meister.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		421DB2CE216777040029BB85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		421DB2D0216777040029BB85 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -23,7 +27,9 @@
 		421DB2D8216777060029BB85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42465D9A216778450007E8D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Source/Assets.xcassets; sourceTree = "<group>"; };
 		42465D9B216778450007E8D6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
+		424774F3216B3D9600DBB60F /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		427F4FA321677E2300FC1B11 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		6D9C08E72A8660EE29D3A48A /* Pods-Gist Meister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist Meister.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gist Meister/Pods-Gist Meister.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0684E59CEB440D5E875DED8 /* Pods_Gist_Meister.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +59,8 @@
 				421DB2CD216777040029BB85 /* Source */,
 				421DB2E1216777E90029BB85 /* Resources */,
 				421DB2CC216777040029BB85 /* Products */,
+				E27C2AEEEE85818CED706834 /* Pods */,
+				656C5629B38E3043E789093D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,8 +88,26 @@
 			children = (
 				42465D9A216778450007E8D6 /* Assets.xcassets */,
 				42465D9B216778450007E8D6 /* Info.plist */,
+				424774F3216B3D9600DBB60F /* Podfile */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		656C5629B38E3043E789093D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				162F913D74B5659C6B98E69A /* Pods_Gist_Meister.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E27C2AEEEE85818CED706834 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1A1F678FC26DEB37D0D63256 /* Pods-Gist Meister.debug.xcconfig */,
+				6D9C08E72A8660EE29D3A48A /* Pods-Gist Meister.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,9 +117,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 421DB2DD216777060029BB85 /* Build configuration list for PBXNativeTarget "Gist Meister" */;
 			buildPhases = (
+				030967DE31652528E6741788 /* [CP] Check Pods Manifest.lock */,
 				421DB2C7216777040029BB85 /* Sources */,
 				421DB2C8216777040029BB85 /* Frameworks */,
 				421DB2C9216777040029BB85 /* Resources */,
+				18F48C2BED186B33D33A5130 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +178,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		030967DE31652528E6741788 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gist Meister-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		18F48C2BED186B33D33A5130 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Gist Meister/Pods-Gist Meister-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gist Meister/Pods-Gist Meister-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		421DB2C7216777040029BB85 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -157,6 +225,7 @@
 				421DB2D1216777040029BB85 /* LoginView.swift in Sources */,
 				421DB2CF216777040029BB85 /* AppDelegate.swift in Sources */,
 				427F4FA421677E2300FC1B11 /* LoginViewModel.swift in Sources */,
+				424774F4216B3D9600DBB60F /* Podfile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +367,7 @@
 		};
 		421DB2DE216777060029BB85 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A1F678FC26DEB37D0D63256 /* Pods-Gist Meister.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -317,6 +387,7 @@
 		};
 		421DB2DF216777060029BB85 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D9C08E72A8660EE29D3A48A /* Pods-Gist Meister.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
