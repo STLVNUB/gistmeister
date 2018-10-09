@@ -15,8 +15,8 @@ class LoginView: UIViewController {
     @IBOutlet weak var usernameTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     
-    // User variables
-    var userModel: JSON?
+    // Class variables
+    var userModel: GitHubModelUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +54,7 @@ class LoginView: UIViewController {
         // Check if both credentials are available
         if let username = usernameTextfield.text, let password = passwordTextfield.text {
             TransactionManager.shared.basicAuthentication(username: username, password: password, completion: { json in
-                self.userModel = json
+                self.userModel = GitHubModelUser(fromJson: json)
                 self.performSegue(withIdentifier: "segueToHome", sender: self)
             })
         }
