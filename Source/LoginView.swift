@@ -15,10 +15,28 @@ class LoginView: UIViewController {
     @IBOutlet weak var passwordTextfield: UITextField!
     
     // Object instances
-    let loginViewModel = LoginViewModel()
+    //let loginViewModel = LoginViewModel()
+    let baseColor = UIColor(red: 177/255.0, green: 185/255.0, blue: 195/255.0, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameTextfield.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        passwordTextfield.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: self.baseColor])
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        super.viewWillDisappear(animated)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {
