@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 
 class LoginView: UIViewController {
@@ -16,6 +17,7 @@ class LoginView: UIViewController {
     
     // Object instances
     //let loginViewModel = LoginViewModel()
+    var userModel: JSON?
     let baseColor = UIColor(red: 177/255.0, green: 185/255.0, blue: 195/255.0, alpha: 1.0)
     
     override func viewDidLoad() {
@@ -39,11 +41,20 @@ class LoginView: UIViewController {
         return .lightContent
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToHome" {
+            if let viewController = segue.destination as? HomeView {
+                viewController.userModel = self.userModel
+            }
+        }
+    }
+    
     @IBAction func doneButtonPressed(_ sender: Any) {
         // Check if both credentials are available
         if let username = usernameTextfield.text, let password = passwordTextfield.text {
             TransactionManager.shared.basicAuthentication(username: username, password: password, completion: { json in
-                print(json)
+                self.userModel = json
+                self.performSegue(withIdentifier: "segueToHome", sender: self)
             })
         }
     }
