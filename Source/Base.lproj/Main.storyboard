@@ -35,16 +35,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="nXG-Ge-ogY">
-                                <rect key="frame" x="155.5" y="70" width="64" height="64"/>
+                                <rect key="frame" x="155.5" y="114" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="3Es-Bq-AJg"/>
                                     <constraint firstAttribute="height" constant="64" id="pxg-os-wMd"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GistMeister" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4k-oY-wcc">
-                                <rect key="frame" x="106" y="134" width="162.5" height="36"/>
+                                <rect key="frame" x="106" y="178" width="162.5" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSF-rZ-fNk">
+                                <rect key="frame" x="15" y="244" width="345" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="yxN-Kq-a4z"/>
+                                </constraints>
+                                <string key="text">Please be informed that in order to be able to place a comment on a Gist, it is required to Authenticate with GitHub. Please enter the details below.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.72549019609999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0aR-y2-vcg">
@@ -117,16 +127,16 @@
                                     <action selector="doneButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XRC-Y2-sTo"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSF-rZ-fNk">
-                                <rect key="frame" x="15" y="200" width="345" height="72"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="yxN-Kq-a4z"/>
-                                </constraints>
-                                <string key="text">Please be informed that in order to be able to place a comment on a Gist, it is required to Authenticate with GitHub. Please enter the details below.</string>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXc-8Q-e2F">
+                                <rect key="frame" x="83" y="619" width="209" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.69411764710000001" green="0.72549019609999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="Go to GitHub's password reminder">
+                                    <color key="titleColor" red="0.69411764710000001" green="0.72549019609999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="reminderButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mOo-vj-szP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.16862745098039217" green="0.23921568627450979" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -134,7 +144,9 @@
                             <constraint firstItem="dEQ-gb-7sG" firstAttribute="leading" secondItem="BG2-ij-Omi" secondAttribute="leading" id="DNW-Yg-0i8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qSF-rZ-fNk" secondAttribute="trailing" constant="15" id="HGV-hb-Xdd"/>
                             <constraint firstItem="qSF-rZ-fNk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="KRp-lw-qka"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DXc-8Q-e2F" secondAttribute="bottom" constant="20" id="LsX-lh-xVx"/>
                             <constraint firstItem="mXc-Ou-P1i" firstAttribute="top" secondItem="gSn-54-xsj" secondAttribute="bottom" constant="10" id="MBl-iw-1Kg"/>
+                            <constraint firstItem="DXc-8Q-e2F" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PPj-IO-ISu"/>
                             <constraint firstItem="gSn-54-xsj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ppr-dD-VXl"/>
                             <constraint firstItem="mXc-Ou-P1i" firstAttribute="leading" secondItem="dEQ-gb-7sG" secondAttribute="trailing" constant="15" id="RS0-cx-7fZ"/>
                             <constraint firstItem="OTf-Dk-GmU" firstAttribute="trailing" secondItem="gSn-54-xsj" secondAttribute="trailing" id="S2W-RN-Uc3"/>
@@ -162,7 +174,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="yBt-Ne-W2n"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="passwordTextfield" destination="mXc-Ou-P1i" id="mvP-dP-jc5"/>
                         <outlet property="usernameTextfield" destination="OTf-Dk-GmU" id="dYq-Jf-6g7"/>
@@ -173,10 +184,10 @@
             </objects>
             <point key="canvasLocation" x="352.80000000000001" y="149.77511244377811"/>
         </scene>
-        <!--Home View-->
+        <!--GistMeister-->
         <scene sceneID="GGf-Pg-Tit">
             <objects>
-                <viewController id="78c-Nw-00X" customClass="HomeView" customModule="Gist_Meister" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="GistMeister" id="78c-Nw-00X" customClass="HomeView" customModule="Gist_Meister" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LcJ-Op-f26">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

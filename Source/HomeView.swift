@@ -15,5 +15,8 @@ class HomeView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Theming
+        ThemeManager.shared.navigationControllerColors(navigationController: self.navigationController!)
     }
 }

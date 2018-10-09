@@ -15,16 +15,22 @@ class LoginView: UIViewController {
     @IBOutlet weak var usernameTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     
-    // Object instances
-    //let loginViewModel = LoginViewModel()
+    // User variables
     var userModel: JSON?
     let baseColor = UIColor(red: 177/255.0, green: 185/255.0, blue: 195/255.0, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Theming
+        ThemeManager.shared.navigationControllerColors(navigationController: self.navigationController!)
+        
+        // Customization
         usernameTextfield.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         passwordTextfield.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: self.baseColor])
+        
+        // Remove this
+        self.performSegue(withIdentifier: "segueToHome", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,10 +41,6 @@ class LoginView: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         super.viewWillDisappear(animated)
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,5 +59,8 @@ class LoginView: UIViewController {
                 self.performSegue(withIdentifier: "segueToHome", sender: self)
             })
         }
+    }
+    
+    @IBAction func reminderButtonPressed(_ sender: Any) {
     }
 }

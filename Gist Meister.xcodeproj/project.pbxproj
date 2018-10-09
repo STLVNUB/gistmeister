@@ -14,6 +14,7 @@
 		42465D9C216778450007E8D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42465D9A216778450007E8D6 /* Assets.xcassets */; };
 		427F4FA421677E2300FC1B11 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427F4FA321677E2300FC1B11 /* LoginViewModel.swift */; };
 		42952E11216C90FF00B19773 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42952E10216C90FF00B19773 /* HomeView.swift */; };
+		42952E13216C96CD00B19773 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42952E12216C96CD00B19773 /* ThemeManager.swift */; };
 		429CBF02216B729F00B2D7B1 /* TransactionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CBF01216B729F00B2D7B1 /* TransactionManager.swift */; };
 		429CBF06216B7CFF00B2D7B1 /* GitHubModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CBF04216B7CFF00B2D7B1 /* GitHubModelUser.swift */; };
 		429CBF07216B7CFF00B2D7B1 /* GitHubModelUserPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CBF05216B7CFF00B2D7B1 /* GitHubModelUserPlan.swift */; };
@@ -32,6 +33,7 @@
 		42465D9B216778450007E8D6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
 		427F4FA321677E2300FC1B11 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		42952E10216C90FF00B19773 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		42952E12216C96CD00B19773 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		429CBF01216B729F00B2D7B1 /* TransactionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionManager.swift; sourceTree = "<group>"; };
 		429CBF04216B7CFF00B2D7B1 /* GitHubModelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubModelUser.swift; sourceTree = "<group>"; };
 		429CBF05216B7CFF00B2D7B1 /* GitHubModelUserPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubModelUserPlan.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				429CBF03216B7BEA00B2D7B1 /* Models */,
 				42F5AB2E216B82A700E0827D /* View Controllers */,
 				421DB2CE216777040029BB85 /* AppDelegate.swift */,
+				42952E12216C96CD00B19773 /* ThemeManager.swift */,
 				429CBF01216B729F00B2D7B1 /* TransactionManager.swift */,
 				421DB2D2216777040029BB85 /* Main.storyboard */,
 				421DB2D7216777060029BB85 /* LaunchScreen.storyboard */,
@@ -270,6 +273,7 @@
 				421DB2D1216777040029BB85 /* LoginView.swift in Sources */,
 				42952E11216C90FF00B19773 /* HomeView.swift in Sources */,
 				429CBF06216B7CFF00B2D7B1 /* GitHubModelUser.swift in Sources */,
+				42952E13216C96CD00B19773 /* ThemeManager.swift in Sources */,
 				429CBF07216B7CFF00B2D7B1 /* GitHubModelUserPlan.swift in Sources */,
 				421DB2CF216777040029BB85 /* AppDelegate.swift in Sources */,
 				427F4FA421677E2300FC1B11 /* LoginViewModel.swift in Sources */,
