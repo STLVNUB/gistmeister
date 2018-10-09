@@ -18,26 +18,27 @@ class TransactionManager: NSObject {
     
     func processResponse(_ description: String, statusCode: Int, data: Data, completion: (JSON) -> ()) {
         switch(statusCode) {
-            case 200:
-                let json = try! JSON(data: data)
+        case 200:
+            // Hide progress indicator
+            SVProgressHUD.dismiss()
             
-                // Callback function
-                completion(json)
+            let json = try! JSON(data: data)
             
-            case 401:
-                print(String(describing: "\(description) failed"))
+            // Callback function
+            completion(json)
             
-            default:
-                print(String(describing: "Call: \(description), unknown status code -> \(statusCode)"))
+        case 401:
+            SVProgressHUD.showError(withStatus: String(describing: "\(description) failed"))
+            
+        default:
+            SVProgressHUD.showError(withStatus: String(describing: "Call: \(description), unknown status code -> \(statusCode)"))
         }
-        
-        // Hide progress indicator
-        SVProgressHUD.dismiss()
     }
     
     func basicAuthentication(username: String, password: String, completion: @escaping (JSON) -> ()) {
         // Progress indicator
         SVProgressHUD.show()
+        SVProgressHUD.setMinimumDismissTimeInterval(2.5)
         
         // Encode user credentials
         let base64  = Data("\(username):\(password)".utf8).base64EncodedString()

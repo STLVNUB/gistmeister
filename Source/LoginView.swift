@@ -17,7 +17,6 @@ class LoginView: UIViewController {
     
     // User variables
     var userModel: JSON?
-    let baseColor = UIColor(red: 177/255.0, green: 185/255.0, blue: 195/255.0, alpha: 1.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +25,8 @@ class LoginView: UIViewController {
         ThemeManager.shared.navigationControllerColors(navigationController: self.navigationController!)
         
         // Customization
-        usernameTextfield.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
-        passwordTextfield.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: self.baseColor])
+        usernameTextfield.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.defaultTheme.textColor])
+        passwordTextfield.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.defaultTheme.textColor])
         
         // Remove this
         self.performSegue(withIdentifier: "segueToHome", sender: self)
