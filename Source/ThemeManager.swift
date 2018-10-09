@@ -31,8 +31,8 @@ class ThemeManager: NSObject {
     static let shared = ThemeManager()
     
     func navigationControllerColors(navigationController: UINavigationController) {
-        navigationController.navigationBar.barTintColor = UIColor.defaultTheme.backgroundColor
-        UINavigationBar.appearance().tintColor = UIColor.defaultTheme.highlightColor
+//        navigationController.navigationBar.barTintColor = UIColor.defaultTheme.backgroundColor
+        navigationController.navigationBar.tintColor = UIColor.defaultTheme.highlightColor
         navigationController.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     }
 }
