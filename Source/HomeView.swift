@@ -80,11 +80,16 @@ class HomeView: UIViewController {
                 viewController.homeView = self
             }
         }
+        else if segue.identifier == "segueToGist" {
+            if let viewController = segue.destination as? GistView {
+                viewController.qrString = self.qrString
+            }
+        }
     }
     
     // QR Code has been scanned with success
     func qrScannerSuccess() {
-        print(self.qrString!)
+        self.performSegue(withIdentifier: "segueToGist", sender: self)
     }
     
     // MARK: IB actions

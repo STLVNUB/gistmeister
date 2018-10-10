@@ -32,7 +32,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
         self.passwordTextfield.delegate = self
         
         // Remove this
-        self.performSegue(withIdentifier: "segueToHome", sender: self)
+        //self.performSegue(withIdentifier: "segueToHome", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,7 +61,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
     @IBAction func doneButtonPressed(_ sender: Any) {
         // Check if both credentials are available
         if let username = usernameTextfield.text, let password = passwordTextfield.text {
-            TransactionManager.shared.basicAuthentication(username: username, password: password, completion: { json in
+            TransactionManager.shared.getAuthenticatedUser(username: username, password: password, completion: { json in
                 self.userModel = GitHubModelUser(fromJson: json)
                 self.performSegue(withIdentifier: "segueToHome", sender: self)
             })

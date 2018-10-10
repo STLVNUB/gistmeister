@@ -35,7 +35,7 @@ class TransactionManager: NSObject {
         }
     }
     
-    func basicAuthentication(username: String, password: String, completion: @escaping (JSON) -> ()) {
+    func getAuthenticatedUser(username: String, password: String, completion: @escaping (JSON) -> ()) {
         // Progress indicator
         SVProgressHUD.show()
         SVProgressHUD.setMinimumDismissTimeInterval(2.5)
@@ -48,6 +48,22 @@ class TransactionManager: NSObject {
         Alamofire.request("https://api.github.com/user", headers: headers).responseJSON { response in
             if let statusCode = response.response?.statusCode, let data = response.data {
                 self.processResponse("Authentication", statusCode: statusCode, data: data, completion: completion)
+            }
+        }
+    }
+    
+    func getGist(uid: String, completion: @escaping (JSON) -> ()) {
+        // Progress indicator
+        SVProgressHUD.show()
+        SVProgressHUD.setMinimumDismissTimeInterval(2.5)
+        
+        // Preparation
+        let url = String(describing: "https://api.github.com/gists/\(uid)")
+        
+        // Make the Authentication request
+        Alamofire.request(url).responseJSON { response in
+            if let statusCode = response.response?.statusCode, let data = response.data {
+                self.processResponse("Gist", statusCode: statusCode, data: data, completion: completion)
             }
         }
     }
