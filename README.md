@@ -19,4 +19,4 @@ The source code is organized as follows:
     - Main
 ```
 
-The design pattern preferred and used throughout this project is **MVVM**. It's a big deal being able to decouple code that can be reused and tested independent of the UI view implementation. **Clean code == Better code**.
+The preferred design pattern that is used throughout this project is **MVVM**. It's a big deal being able to decouple code that can be reused and tested independent of the UI view implementation. **Clean code == Better code**.
