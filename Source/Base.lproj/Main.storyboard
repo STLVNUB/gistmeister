@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h1S-YU-gKq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rnt-xf-794">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -182,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348" y="150"/>
+            <point key="canvasLocation" x="335" y="149"/>
         </scene>
         <!--Home-->
         <scene sceneID="GGf-Pg-Tit">
@@ -293,7 +293,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whereabouts" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMj-Xc-R42">
-                                <rect key="frame" x="15" y="394" width="92" height="18"/>
+                                <rect key="frame" x="15" y="394" width="93" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.69411764710000001" green="0.72549019609999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -372,9 +372,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rmh-lW-Mx7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ICp-hd-1mf">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ICp-hd-1mf">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFn-sg-Fda">
+                                        <rect key="frame" x="141" y="105" width="93" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -383,6 +389,8 @@
                                     <constraint firstItem="ICp-hd-1mf" firstAttribute="leading" secondItem="Rmh-lW-Mx7" secondAttribute="leading" id="F2F-lo-vNY"/>
                                     <constraint firstAttribute="bottom" secondItem="ICp-hd-1mf" secondAttribute="bottom" id="Uvs-S9-p2D"/>
                                     <constraint firstAttribute="trailing" secondItem="ICp-hd-1mf" secondAttribute="trailing" id="mL7-ef-hVS"/>
+                                    <constraint firstItem="pFn-sg-Fda" firstAttribute="centerY" secondItem="Rmh-lW-Mx7" secondAttribute="centerY" id="n38-Qq-tcy"/>
+                                    <constraint firstItem="pFn-sg-Fda" firstAttribute="centerX" secondItem="Rmh-lW-Mx7" secondAttribute="centerX" id="nOk-uF-iqd"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bLs-HN-6e6">
@@ -402,6 +410,9 @@
                                         <rect key="frame" x="318" y="13" width="42" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="sendButtonPressed:" destination="h1S-YU-gKq" eventType="touchUpInside" id="lL0-tr-Hnw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -430,6 +441,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CXG-Fr-1eD"/>
                     </view>
+                    <connections>
+                        <outlet property="gistTitle" destination="pFn-sg-Fda" id="d8v-vX-WjT"/>
+                        <outlet property="userImage" destination="ICp-hd-1mf" id="PLO-tv-fDE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3q4-Rk-RWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -492,10 +507,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Bio" width="128" height="128"/>
-        <image name="Location" width="256" height="256"/>
-        <image name="Logo" width="128" height="128"/>
-        <image name="Password" width="256" height="256"/>
-        <image name="Username" width="256" height="256"/>
+        <image name="Bio" width="256" height="256"/>
+        <image name="Location" width="512" height="512"/>
+        <image name="Logo" width="256" height="256"/>
+        <image name="Password" width="512" height="512"/>
+        <image name="Username" width="512" height="512"/>
     </resources>
 </document>

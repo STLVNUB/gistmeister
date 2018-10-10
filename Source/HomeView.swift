@@ -94,6 +94,7 @@ class HomeView: UIViewController {
     
     // MARK: IB actions
     @IBAction func cameraButtonPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "segueToCamera", sender: self)
+        //self.performSegue(withIdentifier: "segueToCamera", sender: self)
+        self.performSegue(withIdentifier: "segueToGist", sender: self)
     }
 }

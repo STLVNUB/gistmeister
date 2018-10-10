@@ -21,6 +21,10 @@ class LoginView: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Notifications
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
         // Theming
         ThemeManager.shared.navigationControllerColors(navigationController: self.navigationController!)
         
@@ -58,7 +62,20 @@ class LoginView: UIViewController, UITextFieldDelegate {
         return false
     }
     
+    @objc func keyboardWillShow(_ notification: NSNotification) {
+        let info = notification.userInfo!
+        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        self.view.frame.origin.y = -keyboardFrame.size.height
+    }
+    
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+        self.view.frame.origin.y = 0
+    }
+    
+    // MARK: IB actions
     @IBAction func doneButtonPressed(_ sender: Any) {
+        self.view.endEditing(true)
+        
         // Check if both credentials are available
         if let username = usernameTextfield.text, let password = passwordTextfield.text {
             TransactionManager.shared.getAuthenticatedUser(username: username, password: password, completion: { json in

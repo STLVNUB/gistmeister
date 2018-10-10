@@ -77,8 +77,9 @@ class CodeScannerView: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
         })
     }
     
-    // No QR code scanned, just close the Popover
+    // MARK: IB actions
     @IBAction func closeButtonPressed(_ sender: Any) {
+        // No QR code scanned, just close the Popover
         dismiss(animated: true)
     }
 }
