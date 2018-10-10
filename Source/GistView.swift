@@ -21,18 +21,22 @@ class GistView: UIViewController {
         TransactionManager.shared.getGist(uid: "c36f3167b48893f50ea15b8dd456ac91", completion: { json in
             self.gistModel = GitHubModelGist(fromJson: json)
             
-            if let dictionary = json as? [String: Any], let emergencyNumbers = dictionary["EmergencyNumbers"] as? [[String: Any]]
-            {
-                emergencyNumbers.forEach { numbers in
-                    print(numbers["Description"] as? String)
-                    print(numbers["Id"] as? Int)
-                    print(numbers["Number"] as? Int)
-                }
+            // Get named parameter
+            let files = json["files"]
+            var name: String?
+            
+            for file in files {
+                name = file.0
+                break
             }
             
-            //print(String(describing: self.gistModel?.files.sampleGist.filename))
-            //print(String(describing: self.gistModel?.files.sampleGist.content))
-            //print(String(describing: self.gistModel?.comments))
+            if name != nil {
+                let model = GitHubModelGistDetails(fromJson: files[name!])
+                
+                print(model.filename)
+                print(model.content)
+                print(self.gistModel?.comments)
+            }
         })
     }
 }
