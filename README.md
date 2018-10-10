@@ -19,3 +19,5 @@ The source code is organized as follows:
     - Launch screen
     - Main
 ```
+
+The design pattern preferred and used throughout this project is **MVVM**. It's a big deal being able to decouple code that can be reused and tested independent of the UI view implementation. **Clean code == Better code**.
