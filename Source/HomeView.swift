@@ -72,9 +72,11 @@ class HomeView: UIViewController {
         // Theming
         ThemeManager.shared.navigationControllerColors(navigationController: self.navigationController!)
         
-        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController!.navigationBar.shadowImage = UIImage()
-        self.navigationController!.navigationBar.isTranslucent = true
+        if let navigationBar = self.navigationController?.navigationBar {
+            navigationBar.setBackgroundImage(UIImage(), for: .default)
+            navigationBar.shadowImage = UIImage()
+            navigationBar.isTranslucent = true
+        }
     }
     
     // Pass a reference of the current UIViewController in order to provide callback function

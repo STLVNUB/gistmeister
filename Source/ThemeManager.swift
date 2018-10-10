@@ -21,6 +21,10 @@ extension UIColor {
         }
         
         static var textColor: UIColor {
+            return UIColor.white
+        }
+        
+        static var secondaryTextColor: UIColor {
             return UIColor(red: 177/255.0, green: 185/255.0, blue: 195/255.0, alpha: 1)
         }
     }
@@ -31,7 +35,8 @@ class ThemeManager: NSObject {
     static let shared = ThemeManager()
     
     func navigationControllerColors(navigationController: UINavigationController) {
-        navigationController.navigationBar.tintColor = UIColor.defaultTheme.highlightColor
-        navigationController.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        let navigationBar = navigationController.navigationBar
+        navigationBar.tintColor = UIColor.defaultTheme.highlightColor
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.defaultTheme.textColor]
     }
 }

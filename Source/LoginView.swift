@@ -28,8 +28,8 @@ class LoginView: UIViewController, UITextFieldDelegate {
         ThemeManager.shared.navigationControllerColors(navigationController: self.navigationController!)
         
         // Customization
-        self.usernameTextfield.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.defaultTheme.textColor])
-        self.passwordTextfield.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.defaultTheme.textColor])
+        self.usernameTextfield.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.defaultTheme.secondaryTextColor])
+        self.passwordTextfield.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.defaultTheme.secondaryTextColor])
         
         // Delegates
         self.passwordTextfield.delegate = self
