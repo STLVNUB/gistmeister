@@ -17,7 +17,8 @@ class CodeScannerView: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     // Class variables
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-
+    var homeView: HomeView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,16 +66,18 @@ class CodeScannerView: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            found(code: stringValue)
+            
+            // Store QR code
+            self.homeView?.qrString = stringValue
         }
         
-        dismiss(animated: true)
+        // Go to "Comment on Gist UIViewController" on completion
+        dismiss(animated: true, completion: {
+            self.homeView?.qrScannerSuccess()
+        })
     }
     
-    func found(code: String) {
-        print(code)
-    }
-    
+    // No QR code scanned, just close the Popover
     @IBAction func closeButtonPressed(_ sender: Any) {
         dismiss(animated: true)
     }

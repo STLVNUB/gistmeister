@@ -11,14 +11,6 @@ import moa
 import SwiftyJSON
 
 
-extension UIImageView {
-    func glassView() {
-        let fx = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-        fx.frame = self.bounds
-        self.addSubview(fx)
-    }
-}
-
 class HomeView: UIViewController {
     // Interface outlets
     @IBOutlet weak var userImage: UIImageView!
@@ -32,6 +24,7 @@ class HomeView: UIViewController {
     
     // Class variables
     var userModel: GitHubModelUser?
+    var qrString: String?
     
     override func viewWillLayoutSubviews() {
         self.userSmallImage.layer.cornerRadius = self.userSmallImage.frame.size.width / 2
@@ -70,7 +63,7 @@ class HomeView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.userImage.glassView()
+        self.userImage.frostedGlassView()
         
         // Theming
         ThemeManager.shared.navigationControllerColors(navigationController: self.navigationController!)
@@ -80,6 +73,21 @@ class HomeView: UIViewController {
         self.navigationController!.navigationBar.isTranslucent = true
     }
     
+    // Pass a reference of the current UIViewController in order to provide callback function
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToCamera" {
+            if let viewController = segue.destination as? CodeScannerView {
+                viewController.homeView = self
+            }
+        }
+    }
+    
+    // QR Code has been scanned with success
+    func qrScannerSuccess() {
+        print(self.qrString!)
+    }
+    
+    // MARK: IB actions
     @IBAction func cameraButtonPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "segueToCamera", sender: self)
     }
