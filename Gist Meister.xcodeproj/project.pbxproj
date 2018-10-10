@@ -12,6 +12,7 @@
 		421DB2D4216777040029BB85 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421DB2D2216777040029BB85 /* Main.storyboard */; };
 		421DB2D9216777060029BB85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 421DB2D7216777060029BB85 /* LaunchScreen.storyboard */; };
 		42465D9C216778450007E8D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42465D9A216778450007E8D6 /* Assets.xcassets */; };
+		4258080A216DDBB40041F605 /* CodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42580809216DDBB40041F605 /* CodeScannerView.swift */; };
 		427F4FA421677E2300FC1B11 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427F4FA321677E2300FC1B11 /* LoginViewModel.swift */; };
 		42952E11216C90FF00B19773 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42952E10216C90FF00B19773 /* HomeView.swift */; };
 		42952E13216C96CD00B19773 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42952E12216C96CD00B19773 /* ThemeManager.swift */; };
@@ -31,6 +32,7 @@
 		421DB2D8216777060029BB85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42465D9A216778450007E8D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Source/Assets.xcassets; sourceTree = "<group>"; };
 		42465D9B216778450007E8D6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
+		42580809216DDBB40041F605 /* CodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeScannerView.swift; sourceTree = "<group>"; };
 		427F4FA321677E2300FC1B11 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		42952E10216C90FF00B19773 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		42952E12216C96CD00B19773 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		42580808216DDB6C0041F605 /* CodeScanner */ = {
+			isa = PBXGroup;
+			children = (
+				42580809216DDBB40041F605 /* CodeScannerView.swift */,
+			);
+			name = CodeScanner;
+			sourceTree = "<group>";
+		};
 		42952E0F216C90D200B19773 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +143,7 @@
 			children = (
 				420097A221677D8A00B1C7A1 /* Login */,
 				42952E0F216C90D200B19773 /* Home */,
+				42580808216DDB6C0041F605 /* CodeScanner */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -273,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				421DB2D1216777040029BB85 /* LoginView.swift in Sources */,
+				4258080A216DDBB40041F605 /* CodeScannerView.swift in Sources */,
 				42952E11216C90FF00B19773 /* HomeView.swift in Sources */,
 				429CBF06216B7CFF00B2D7B1 /* GitHubModelUser.swift in Sources */,
 				42952E13216C96CD00B19773 /* ThemeManager.swift in Sources */,
@@ -425,15 +437,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F589FAJ6VY;
 				INFOPLIST_FILE = Source/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dk.Gist-Meister";
+				PRODUCT_BUNDLE_IDENTIFIER = com.intralot.sandboxsample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "9658f572-fe51-4a82-bcf1-8b44de575449";
+				PROVISIONING_PROFILE_SPECIFIER = "Sandbox sample dev";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -445,15 +459,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F589FAJ6VY;
 				INFOPLIST_FILE = Source/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dk.Gist-Meister";
+				PRODUCT_BUNDLE_IDENTIFIER = com.intralot.sandboxsample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "9658f572-fe51-4a82-bcf1-8b44de575449";
+				PROVISIONING_PROFILE_SPECIFIER = "Sandbox sample dev";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -79,4 +79,8 @@ class HomeView: UIViewController {
         self.navigationController!.navigationBar.shadowImage = UIImage()
         self.navigationController!.navigationBar.isTranslucent = true
     }
+    
+    @IBAction func cameraButtonPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "segueToCamera", sender: self)
+    }
 }

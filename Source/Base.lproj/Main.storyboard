@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rnt-xf-794">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rnt-xf-794">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1vk-3I-ndV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-502" y="150"/>
+            <point key="canvasLocation" x="-590" y="150"/>
         </scene>
         <!--Login View-->
         <scene sceneID="tne-QT-ifu">
@@ -182,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="352.80000000000001" y="149.77511244377811"/>
+            <point key="canvasLocation" x="348" y="150"/>
         </scene>
         <!--GistMeister-->
         <scene sceneID="GGf-Pg-Tit">
@@ -263,7 +263,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="mJk-9X-SG7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -288,12 +288,12 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="hPD-bL-DC8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whereabouts" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMj-Xc-R42">
-                                <rect key="frame" x="15" y="394" width="93" height="18"/>
+                                <rect key="frame" x="15" y="394" width="92" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.69411764710000001" green="0.72549019609999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -309,6 +309,7 @@
                                     <color key="titleColor" red="0.92156862750000001" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="cameraButtonPressed:" destination="78c-Nw-00X" eventType="touchUpInside" id="jJ1-nA-5nj"/>
                                     <action selector="doneButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tzJ-UL-eY5"/>
                                 </connections>
                             </button>
@@ -350,18 +351,75 @@
                         <outlet property="userRepos" destination="IKe-49-wbf" id="FlE-99-uqx"/>
                         <outlet property="userScreenName" destination="nS7-3q-yu7" id="p8E-NC-HIu"/>
                         <outlet property="userSmallImage" destination="gTx-ed-Qk2" id="vew-HO-XhG"/>
+                        <segue destination="b36-SD-lUW" kind="popoverPresentation" identifier="segueToCamera" popoverAnchorView="LcJ-Op-f26" id="Nfa-e5-LdC">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LGv-Gv-WUO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1192.8" y="149.77511244377811"/>
+            <point key="canvasLocation" x="1258" y="150"/>
+        </scene>
+        <!--Code Scanner View-->
+        <scene sceneID="VyG-St-xbl">
+            <objects>
+                <viewController id="b36-SD-lUW" customClass="CodeScannerView" customModule="Gist_Meister" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LsE-QJ-bAW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i0o-V2-yVP">
+                                <rect key="frame" x="0.0" y="70" width="375" height="537"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bso-OW-cg1">
+                                <rect key="frame" x="314" y="31" width="46" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" red="0.0" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="b36-SD-lUW" eventType="touchUpInside" id="373-7W-fB7"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place the camera on top of the Gist QR Code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5C-NJ-bgp">
+                                <rect key="frame" x="67.5" y="613" width="240" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="hMX-LK-Wr2"/>
+                                    <constraint firstAttribute="height" constant="50" id="j0f-Rc-aE3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.69411764710000001" green="0.72549019609999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.16862745100000001" green="0.23921568630000001" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TL9-n9-okH" firstAttribute="trailing" secondItem="i0o-V2-yVP" secondAttribute="trailing" id="7jj-9j-rp1"/>
+                            <constraint firstItem="TL9-n9-okH" firstAttribute="trailing" secondItem="bso-OW-cg1" secondAttribute="trailing" constant="15" id="ISG-1Q-qvO"/>
+                            <constraint firstItem="i0o-V2-yVP" firstAttribute="top" secondItem="TL9-n9-okH" secondAttribute="top" constant="50" id="MLP-qm-ueZ"/>
+                            <constraint firstItem="TL9-n9-okH" firstAttribute="bottom" secondItem="a5C-NJ-bgp" secondAttribute="bottom" constant="4" id="QUP-Cb-Qrk"/>
+                            <constraint firstItem="a5C-NJ-bgp" firstAttribute="centerX" secondItem="TL9-n9-okH" secondAttribute="centerX" id="amH-nW-bCy"/>
+                            <constraint firstItem="i0o-V2-yVP" firstAttribute="leading" secondItem="TL9-n9-okH" secondAttribute="leading" id="edM-KD-G9y"/>
+                            <constraint firstItem="TL9-n9-okH" firstAttribute="bottom" secondItem="i0o-V2-yVP" secondAttribute="bottom" constant="60" id="g7C-kg-HCX"/>
+                            <constraint firstItem="bso-OW-cg1" firstAttribute="top" secondItem="TL9-n9-okH" secondAttribute="top" constant="11" id="t8w-2z-yEG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TL9-n9-okH"/>
+                    </view>
+                    <connections>
+                        <outlet property="captureView" destination="i0o-V2-yVP" id="reT-eh-Hzy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Bl-KP-8ge" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1257" y="974"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Bio" width="256" height="256"/>
-        <image name="Location" width="512" height="512"/>
-        <image name="Logo" width="256" height="256"/>
-        <image name="Password" width="512" height="512"/>
-        <image name="Username" width="512" height="512"/>
+        <image name="Bio" width="128" height="128"/>
+        <image name="Location" width="256" height="256"/>
+        <image name="Logo" width="128" height="128"/>
+        <image name="Password" width="256" height="256"/>
+        <image name="Username" width="256" height="256"/>
     </resources>
 </document>

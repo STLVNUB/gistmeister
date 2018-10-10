@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 
 
-class LoginView: UIViewController {
+class LoginView: UIViewController, UITextFieldDelegate {
     // Interface outlets
     @IBOutlet weak var usernameTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
@@ -27,6 +27,9 @@ class LoginView: UIViewController {
         // Customization
         usernameTextfield.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.defaultTheme.textColor])
         passwordTextfield.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.defaultTheme.textColor])
+        
+        // Delegates
+        self.passwordTextfield.delegate = self
         
         // Remove this
         self.performSegue(withIdentifier: "segueToHome", sender: self)
@@ -48,6 +51,11 @@ class LoginView: UIViewController {
                 viewController.userModel = self.userModel
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {
