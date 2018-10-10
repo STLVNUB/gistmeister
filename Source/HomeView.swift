@@ -23,41 +23,43 @@ class HomeView: UIViewController {
     @IBOutlet weak var userLocation: UILabel!
     
     // Class variables
-    var userModel: GitHubModelUser?
-    var qrString: String?
+    var viewModel = HomeViewModel()
     
     override func viewWillLayoutSubviews() {
         self.userSmallImage.layer.cornerRadius = self.userSmallImage.frame.size.width / 2
         self.userSmallImage.layer.borderWidth = 1
-        self.userSmallImage.layer.borderColor = UIColor(red:255/255, green:255/255, blue:255/255, alpha: 1).cgColor
+        self.userSmallImage.layer.borderColor = UIColor(red:255/255.0, green:255/255.0, blue:255/255.0, alpha: 1).cgColor
         
-        if let avatar = self.userModel?.avatarUrl {
-            self.userImage.moa.url = avatar
-            self.userSmallImage.moa.url = avatar
-        }
-        
-        if let repos = self.userModel?.publicRepos {
-            self.userRepos.text = String(describing: "Repos: \(repos)")
-        }
-        
-        if let followers = self.userModel?.followers {
-            self.userFollowers.text = String(describing: "Followers: \(followers)")
-        }
-        
-        if let fullname = self.userModel?.name {
-            self.userFullName.text = fullname
-        }
-        
-        if let username = self.userModel?.login {
-            self.userScreenName.text = String(describing: "@\(username)")
-        }
-        
-        if let description = self.userModel?.bio {
-            self.userDescription.text = description
-        }
-        
-        if let location = self.userModel?.location {
-            self.userLocation.text = location
+        // Check for valid data
+        if let data = self.viewModel.userModel {
+            if let avatar = data.avatarUrl {
+                self.userImage.moa.url = avatar
+                self.userSmallImage.moa.url = avatar
+            }
+            
+            if let repos = data.publicRepos {
+                self.userRepos.text = String(describing: "Repos: \(repos)")
+            }
+            
+            if let followers = data.followers {
+                self.userFollowers.text = String(describing: "Followers: \(followers)")
+            }
+            
+            if let fullname = data.name {
+                self.userFullName.text = fullname
+            }
+            
+            if let username = data.login {
+                self.userScreenName.text = String(describing: "@\(username)")
+            }
+            
+            if let description = data.bio {
+                self.userDescription.text = description
+            }
+            
+            if let location = data.location {
+                self.userLocation.text = location
+            }
         }
     }
     
@@ -84,7 +86,7 @@ class HomeView: UIViewController {
         }
         else if segue.identifier == "segueToGist" {
             if let viewController = segue.destination as? GistView {
-                viewController.qrString = self.qrString
+                viewController.viewModel.qrString = self.viewModel.qrString
             }
         }
     }

@@ -15,7 +15,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextfield: UITextField!
     
     // Class variables
-    var userModel: GitHubModelUser?
+    var viewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +28,8 @@ class LoginView: UIViewController, UITextFieldDelegate {
         ThemeManager.shared.navigationControllerColors(navigationController: self.navigationController!)
         
         // Customization
-        usernameTextfield.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.defaultTheme.textColor])
-        passwordTextfield.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.defaultTheme.textColor])
+        self.usernameTextfield.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.defaultTheme.textColor])
+        self.passwordTextfield.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.defaultTheme.textColor])
         
         // Delegates
         self.passwordTextfield.delegate = self
@@ -51,7 +51,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToHome" {
             if let viewController = segue.destination as? HomeView {
-                viewController.userModel = self.userModel
+                viewController.viewModel.userModel = self.viewModel.userModel
             }
         }
     }
@@ -61,7 +61,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    // Offset move of whole screen to accommodate the keyboard
+    // Offset movement of whole screen to accommodate the keyboard
     @objc func keyboardWillShow(_ notification: NSNotification) {
         let info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
@@ -76,13 +76,10 @@ class LoginView: UIViewController, UITextFieldDelegate {
     @IBAction func doneButtonPressed(_ sender: Any) {
         self.view.endEditing(true)
         
-        // Check if both credentials are available
-        if let username = usernameTextfield.text, let password = passwordTextfield.text {
-            TransactionManager.shared.getAuthenticatedUser(username: username, password: password, completion: { json in
-                self.userModel = GitHubModelUser(fromJson: json)
-                self.performSegue(withIdentifier: "segueToHome", sender: self)
-            })
-        }
+        // ViewModel handling
+        self.viewModel.getAuthenticatedUser(username: self.usernameTextfield.text, password: self.passwordTextfield.text, completion: {
+            self.performSegue(withIdentifier: "segueToHome", sender: self)
+        })
     }
     
     @IBAction func reminderButtonPressed(_ sender: Any) {

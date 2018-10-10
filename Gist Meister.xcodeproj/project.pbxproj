@@ -16,6 +16,8 @@
 		42465D9C216778450007E8D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42465D9A216778450007E8D6 /* Assets.xcassets */; };
 		4258080A216DDBB40041F605 /* CodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42580809216DDBB40041F605 /* CodeScannerView.swift */; };
 		427F4FA421677E2300FC1B11 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427F4FA321677E2300FC1B11 /* LoginViewModel.swift */; };
+		4292FD43216E7083008FA8FD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4292FD42216E7083008FA8FD /* HomeViewModel.swift */; };
+		4292FD45216E7352008FA8FD /* GistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4292FD44216E7352008FA8FD /* GistViewModel.swift */; };
 		42952E11216C90FF00B19773 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42952E10216C90FF00B19773 /* HomeView.swift */; };
 		42952E13216C96CD00B19773 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42952E12216C96CD00B19773 /* ThemeManager.swift */; };
 		429A3628216DF6A500BE6831 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429A3627216DF6A500BE6831 /* Extensions.swift */; };
@@ -40,6 +42,8 @@
 		42465D9B216778450007E8D6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
 		42580809216DDBB40041F605 /* CodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeScannerView.swift; sourceTree = "<group>"; };
 		427F4FA321677E2300FC1B11 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		4292FD42216E7083008FA8FD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		4292FD44216E7352008FA8FD /* GistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistViewModel.swift; sourceTree = "<group>"; };
 		42952E10216C90FF00B19773 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		42952E12216C96CD00B19773 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		429A3627216DF6A500BE6831 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				42206B71216E0B020016EA87 /* GistView.swift */,
+				4292FD44216E7352008FA8FD /* GistViewModel.swift */,
 			);
 			name = Gist;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				42952E10216C90FF00B19773 /* HomeView.swift */,
+				4292FD42216E7083008FA8FD /* HomeViewModel.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -325,9 +331,11 @@
 				42206B7B216E0C6D0016EA87 /* GitHubModelGist.swift in Sources */,
 				42206B72216E0B020016EA87 /* GistView.swift in Sources */,
 				429CBF06216B7CFF00B2D7B1 /* GitHubModelUser.swift in Sources */,
+				4292FD45216E7352008FA8FD /* GistViewModel.swift in Sources */,
 				42952E13216C96CD00B19773 /* ThemeManager.swift in Sources */,
 				429A3628216DF6A500BE6831 /* Extensions.swift in Sources */,
 				429CBF07216B7CFF00B2D7B1 /* GitHubModelUserPlan.swift in Sources */,
+				4292FD43216E7083008FA8FD /* HomeViewModel.swift in Sources */,
 				42A516EA216E1DFE0048EA30 /* GitHubModelGistDetails.swift in Sources */,
 				421DB2CF216777040029BB85 /* AppDelegate.swift in Sources */,
 				427F4FA421677E2300FC1B11 /* LoginViewModel.swift in Sources */,

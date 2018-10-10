@@ -68,7 +68,7 @@ class CodeScannerView: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             
             // Store QR code
-            self.homeView?.qrString = stringValue
+            self.homeView?.viewModel.qrString = stringValue
         }
         
         // Go to "Comment on Gist UIViewController" on completion

@@ -15,8 +15,7 @@ class GistView: UIViewController {
     @IBOutlet weak var gistTitle: UILabel!
     
     // Class variables
-    var gistModel: GitHubModelGist?
-    var qrString: String?
+    let viewModel = GistViewModel()
     
     override func viewWillLayoutSubviews() {
         self.userImage.moa.url = "https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/12/2016/01/16578.jpg"
@@ -32,29 +31,13 @@ class GistView: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        TransactionManager.shared.getGist(uid: "c36f3167b48893f50ea15b8dd456ac91", completion: { json in
-            self.gistModel = GitHubModelGist(fromJson: json)
-            
-            // Get named parameter
-            let files = json["files"]
-            var name: String?
-            
-            for file in files {
-                name = file.0
-                break
-            }
-            
-            if name != nil {
-                let model = GitHubModelGistDetails(fromJson: files[name!])
-                self.gistTitle.text = model.filename
-                
-                print(model.content)
-                print(self.gistModel?.comments)
-            }
+        // ViewModel handling
+        self.viewModel.getGist(uid: "c36f3167b48893f50ea15b8dd456ac91", completion: { title in
+            self.gistTitle.text = title
         })
     }
     
-    // Offset move of whole screen to accommodate the keyboard
+    // Offset movement of whole screen to accommodate the keyboard
     @objc func keyboardWillShow(_ notification: NSNotification) {
         let info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
