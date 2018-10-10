@@ -20,7 +20,7 @@ class GistView: UIViewController {
         
         TransactionManager.shared.getGist(uid: "c36f3167b48893f50ea15b8dd456ac91", completion: { json in
             self.gistModel = GitHubModelGist(fromJson: json)
-            print(self.gistModel?.comments)
+            print(String(describing: self.gistModel?.comments))
         })
     }
 }
