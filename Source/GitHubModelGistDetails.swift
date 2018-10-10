@@ -1,12 +1,12 @@
 //
-//	GitHubModelSampleGist.swift
+//	GitHubModelGistDetails.swift
 //	Model file generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
 
 import Foundation 
 import SwiftyJSON
 
 
-class GitHubModelSampleGist : NSObject, NSCoding{
+class GitHubModelGistDetails : NSObject, NSCoding{
     
 	var content : String!
 	var filename : String!

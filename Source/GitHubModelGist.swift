@@ -13,16 +13,12 @@ class GitHubModelGist : NSObject, NSCoding{
 	var commitsUrl : String!
 	var createdAt : String!
 	var descriptionField : String!
-	var files : GitHubModelFile!
-	var forks : [AnyObject]!
 	var forksUrl : String!
 	var gitPullUrl : String!
 	var gitPushUrl : String!
-	var history : [GitHubModelHistory]!
 	var htmlUrl : String!
 	var id : String!
 	var nodeId : String!
-	var owner : GitHubModelUser2!
 	var publicField : Bool!
 	var truncated : Bool!
 	var updatedAt : String!
@@ -41,31 +37,11 @@ class GitHubModelGist : NSObject, NSCoding{
 		commitsUrl = json["commits_url"].stringValue
 		createdAt = json["created_at"].stringValue
 		descriptionField = json["description"].stringValue
-		let filesJson = json["files"]
-		if !filesJson.isEmpty{
-			files = GitHubModelFile(fromJson: filesJson)
-		}
-		forks = [AnyObject]()
-		let forksArray = json["forks"].arrayValue
-		for forksJson in forksArray{
-            forks.append(forksJson.stringValue as AnyObject)
-		}
-		forksUrl = json["forks_url"].stringValue
 		gitPullUrl = json["git_pull_url"].stringValue
 		gitPushUrl = json["git_push_url"].stringValue
-		history = [GitHubModelHistory]()
-		let historyArray = json["history"].arrayValue
-		for historyJson in historyArray{
-			let value = GitHubModelHistory(fromJson: historyJson)
-			history.append(value)
-		}
 		htmlUrl = json["html_url"].stringValue
 		id = json["id"].stringValue
 		nodeId = json["node_id"].stringValue
-		let ownerJson = json["owner"]
-		if !ownerJson.isEmpty{
-			owner = GitHubModelUser2(fromJson: ownerJson)
-		}
 		publicField = json["public"].boolValue
 		truncated = json["truncated"].boolValue
 		updatedAt = json["updated_at"].stringValue
@@ -94,12 +70,6 @@ class GitHubModelGist : NSObject, NSCoding{
 		if descriptionField != nil{
 			dictionary["description"] = descriptionField
 		}
-		if files != nil{
-			dictionary["files"] = files.toDictionary()
-		}
-		if forks != nil{
-			dictionary["forks"] = forks
-		}
 		if forksUrl != nil{
 			dictionary["forks_url"] = forksUrl
 		}
@@ -109,13 +79,6 @@ class GitHubModelGist : NSObject, NSCoding{
 		if gitPushUrl != nil{
 			dictionary["git_push_url"] = gitPushUrl
 		}
-		if history != nil{
-			var dictionaryElements = [[String:Any]]()
-			for historyElement in history {
-				dictionaryElements.append(historyElement.toDictionary())
-			}
-			dictionary["history"] = dictionaryElements
-		}
 		if htmlUrl != nil{
 			dictionary["html_url"] = htmlUrl
 		}
@@ -124,9 +87,6 @@ class GitHubModelGist : NSObject, NSCoding{
 		}
 		if nodeId != nil{
 			dictionary["node_id"] = nodeId
-		}
-		if owner != nil{
-			dictionary["owner"] = owner.toDictionary()
 		}
 		if publicField != nil{
 			dictionary["public"] = publicField
@@ -157,16 +117,12 @@ class GitHubModelGist : NSObject, NSCoding{
          commitsUrl = aDecoder.decodeObject(forKey: "commits_url") as? String
          createdAt = aDecoder.decodeObject(forKey: "created_at") as? String
          descriptionField = aDecoder.decodeObject(forKey: "description") as? String
-         files = aDecoder.decodeObject(forKey: "files") as? GitHubModelFile
-         forks = aDecoder.decodeObject(forKey: "forks") as? [AnyObject]
          forksUrl = aDecoder.decodeObject(forKey: "forks_url") as? String
          gitPullUrl = aDecoder.decodeObject(forKey: "git_pull_url") as? String
          gitPushUrl = aDecoder.decodeObject(forKey: "git_push_url") as? String
-         history = aDecoder.decodeObject(forKey: "history") as? [GitHubModelHistory]
          htmlUrl = aDecoder.decodeObject(forKey: "html_url") as? String
          id = aDecoder.decodeObject(forKey: "id") as? String
          nodeId = aDecoder.decodeObject(forKey: "node_id") as? String
-         owner = aDecoder.decodeObject(forKey: "owner") as? GitHubModelUser2
          publicField = aDecoder.decodeObject(forKey: "public") as? Bool
          truncated = aDecoder.decodeObject(forKey: "truncated") as? Bool
          updatedAt = aDecoder.decodeObject(forKey: "updated_at") as? String
@@ -196,12 +152,6 @@ class GitHubModelGist : NSObject, NSCoding{
 		if descriptionField != nil{
 			aCoder.encode(descriptionField, forKey: "description")
 		}
-		if files != nil{
-			aCoder.encode(files, forKey: "files")
-		}
-		if forks != nil{
-			aCoder.encode(forks, forKey: "forks")
-		}
 		if forksUrl != nil{
 			aCoder.encode(forksUrl, forKey: "forks_url")
 		}
@@ -211,9 +161,6 @@ class GitHubModelGist : NSObject, NSCoding{
 		if gitPushUrl != nil{
 			aCoder.encode(gitPushUrl, forKey: "git_push_url")
 		}
-		if history != nil{
-			aCoder.encode(history, forKey: "history")
-		}
 		if htmlUrl != nil{
 			aCoder.encode(htmlUrl, forKey: "html_url")
 		}
@@ -222,9 +169,6 @@ class GitHubModelGist : NSObject, NSCoding{
 		}
 		if nodeId != nil{
 			aCoder.encode(nodeId, forKey: "node_id")
-		}
-		if owner != nil{
-			aCoder.encode(owner, forKey: "owner")
 		}
 		if publicField != nil{
 			aCoder.encode(publicField, forKey: "public")
