@@ -16,6 +16,12 @@ class TransactionManager: NSObject {
     
     static let shared = TransactionManager()
     
+    // Progress indicator
+    func invokeSVProgressHUD() {
+        SVProgressHUD.show()
+        SVProgressHUD.setMinimumDismissTimeInterval(2.5)
+    }
+    
     func processResponse(_ description: String, statusCode: Int, data: Data, completion: (JSON) -> ()) {
         switch(statusCode) {
         case 200:
@@ -36,9 +42,7 @@ class TransactionManager: NSObject {
     }
     
     func getAuthenticatedUser(username: String, password: String, completion: @escaping (JSON) -> ()) {
-        // Progress indicator
-        SVProgressHUD.show()
-        SVProgressHUD.setMinimumDismissTimeInterval(2.5)
+        invokeSVProgressHUD()
         
         // Encode user credentials
         let base64  = Data("\(username):\(password)".utf8).base64EncodedString()
@@ -53,9 +57,7 @@ class TransactionManager: NSObject {
     }
     
     func getGist(uid: String, completion: @escaping (JSON) -> ()) {
-        // Progress indicator
-        SVProgressHUD.show()
-        SVProgressHUD.setMinimumDismissTimeInterval(2.5)
+        invokeSVProgressHUD()
         
         // Preparation
         let url = String(describing: "https://api.github.com/gists/\(uid)")

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyJSON
 
 
 class LoginView: UIViewController, UITextFieldDelegate {
@@ -62,6 +61,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
         return false
     }
     
+    // Offset move of whole screen to accommodate the keyboard
     @objc func keyboardWillShow(_ notification: NSNotification) {
         let info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue

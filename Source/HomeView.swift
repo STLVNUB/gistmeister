@@ -63,6 +63,8 @@ class HomeView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Cool looking UIImageView effect
         self.userImage.frostedGlassView()
         
         // Theming

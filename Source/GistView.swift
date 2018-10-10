@@ -24,6 +24,8 @@ class GistView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Cool looking UIImageView effect
         self.userImage.frostedGlassView()
         
         // Notifications
@@ -52,6 +54,7 @@ class GistView: UIViewController {
         })
     }
     
+    // Offset move of whole screen to accommodate the keyboard
     @objc func keyboardWillShow(_ notification: NSNotification) {
         let info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
