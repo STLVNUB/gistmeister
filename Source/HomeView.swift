@@ -89,6 +89,7 @@ class HomeView: UIViewController {
         else if segue.identifier == "segueToGist" {
             if let viewController = segue.destination as? GistView {
                 viewController.viewModel.gistID = self.viewModel.gistID
+                viewController.viewModel.imageURL = self.userImage.moa.url
             }
         }
     }

@@ -32,6 +32,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
         self.passwordTextfield.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.defaultTheme.secondaryTextColor])
         
         // Delegates
+        self.usernameTextfield.delegate = self
         self.passwordTextfield.delegate = self
     }
     
@@ -53,8 +54,16 @@ class LoginView: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // Handling of UITextField actions
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        if textField == self.usernameTextfield { // Switch focus to other text field
+            self.passwordTextfield.becomeFirstResponder()
+        }
+        
+        if textField == self.passwordTextfield { // Complete the operation
+            self.doneButtonPressed(self)
+        }
+        
         return false
     }
     

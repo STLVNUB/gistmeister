@@ -27,7 +27,6 @@ extension UIImageView {
     func frostedGlassView() {
         let effect = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         effect.frame = self.bounds
-        effect.alpha = 0.85
         self.addSubview(effect)
     }
 }

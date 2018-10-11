@@ -21,7 +21,7 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let viewModel = GistViewModel()
     
     override func viewWillLayoutSubviews() {
-        self.userImage.moa.url = "https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/12/2016/01/16578.jpg"
+        self.userImage.moa.url = self.viewModel.imageURL
     }
     
     override func viewDidLoad() {

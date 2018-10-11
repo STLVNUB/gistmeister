@@ -12,6 +12,7 @@ class GistViewModel: NSObject {
     // Class variables
     var gistCommentsModelArray = [GitHubModelGistComments]()
     var gistID: String?
+    var imageURL: String?
     
     func getGist(uid: String, completion: @escaping ([String]) -> (), completion2: @escaping () -> ()) {
         // Get Gist's details
@@ -20,7 +21,7 @@ class GistViewModel: NSObject {
             let files = json["files"]
             var name: String?
             
-            // GitHub's feed has a weird structure, we're getting the first name we found
+            // GitHub's feed has a weird structure, we're getting the first name we find
             for file in files {
                 name = file.0
                 break
@@ -44,6 +45,12 @@ class GistViewModel: NSObject {
                         completion2() // Fill in the second batch of data, comments
                     })
                 }
+                else {
+                    // Unhandled case, present user with an error
+                }
+            }
+            else {
+                // Unhandled case, present user with an error
             }
         })
     }
