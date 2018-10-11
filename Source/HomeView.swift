@@ -88,7 +88,7 @@ class HomeView: UIViewController {
         }
         else if segue.identifier == "segueToGist" {
             if let viewController = segue.destination as? GistView {
-                viewController.viewModel.qrString = self.viewModel.qrString
+                viewController.viewModel.gistID = self.viewModel.gistID
             }
         }
     }
@@ -98,9 +98,9 @@ class HomeView: UIViewController {
         self.performSegue(withIdentifier: "segueToGist", sender: self)
     }
     
-    // MARK: IB actions
+    // MARK: - IB actions
     @IBAction func cameraButtonPressed(_ sender: Any) {
-        //self.performSegue(withIdentifier: "segueToCamera", sender: self)
-        self.performSegue(withIdentifier: "segueToGist", sender: self)
+        self.performSegue(withIdentifier: "segueToCamera", sender: self)
+        //self.performSegue(withIdentifier: "segueToGist", sender: self)
     }
 }

@@ -15,6 +15,8 @@ import SwiftyJSON
 class TransactionManager: NSObject {
     
     static let shared = TransactionManager()
+    var authenticationHeaders = [String: String]()
+    let apiURL = "https://api.github.com"
     
     // Progress indicator
     func invokeSVProgressHUD() {
@@ -41,31 +43,52 @@ class TransactionManager: NSObject {
         }
     }
     
+    // RESTful API: User Authentication
     func getAuthenticatedUser(username: String, password: String, completion: @escaping (JSON) -> ()) {
         invokeSVProgressHUD()
         
         // Encode user credentials
         let base64  = Data("\(username):\(password)".utf8).base64EncodedString()
-        let headers = ["Authorization": "Basic \(base64)"]
+        self.authenticationHeaders = ["Authorization": "Basic \(base64)"]
         
         // Make the Authentication request
-        Alamofire.request("https://api.github.com/user", headers: headers).responseJSON { response in
+        Alamofire.request("\(self.apiURL)/user", headers: self.authenticationHeaders).responseJSON { response in
             if let statusCode = response.response?.statusCode, let data = response.data {
                 self.processResponse("Authentication", statusCode: statusCode, data: data, completion: completion)
             }
         }
     }
     
+    // RESTful API: Gist
     func getGist(uid: String, completion: @escaping (JSON) -> ()) {
         invokeSVProgressHUD()
         
-        // Preparation
-        let url = String(describing: "https://api.github.com/gists/\(uid)")
+        // Prepare request URL
+        let url = String(describing: "\(self.apiURL)/gists/\(uid)")
+        
+        // Encode user credentials
+//        let base64  = Data("dkoluris:HAHA123qwe!@".utf8).base64EncodedString()
+//        self.authenticationHeaders = ["Authorization": "Basic \(base64)"]
         
         // Make the Authentication request
-        Alamofire.request(url).responseJSON { response in
+        Alamofire.request(url, headers: self.authenticationHeaders).responseJSON { response in
             if let statusCode = response.response?.statusCode, let data = response.data {
                 self.processResponse("Gist", statusCode: statusCode, data: data, completion: completion)
+            }
+        }
+    }
+    
+    // RESTful API: Gist Comments
+    func getGistComments(uid: String, completion: @escaping (JSON) -> ()) {
+        invokeSVProgressHUD()
+        
+        // Prepare request URL
+        let url = String(describing: "\(self.apiURL)/gists/\(uid)/comments")
+        
+        // Make the Authentication request
+        Alamofire.request(url, headers: self.authenticationHeaders).responseJSON { response in
+            if let statusCode = response.response?.statusCode, let data = response.data {
+                self.processResponse("Gist Comments", statusCode: statusCode, data: data, completion: completion)
             }
         }
     }

@@ -72,7 +72,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
         self.view.frame.origin.y = 0
     }
     
-    // MARK: IB actions
+    // MARK: - IB actions
     @IBAction func doneButtonPressed(_ sender: Any) {
         self.view.endEditing(true)
         

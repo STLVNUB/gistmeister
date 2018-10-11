@@ -12,5 +12,13 @@ import UIKit
 class HomeViewModel: NSObject {
     // Class variables
     var userModel: GitHubModelUser?
-    var qrString: String?
+    var gistID: String?
+    
+    func extractGistID(url: String) {
+        let parts = url.split(separator: "/")
+        
+        if parts.count == 4 && parts[1] == "gist.github.com" {
+            self.gistID = String(describing: parts[3])
+        }
+    }
 }

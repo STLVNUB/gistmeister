@@ -68,7 +68,7 @@ class CodeScannerView: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             
             // Store QR code
-            self.homeView?.viewModel.qrString = stringValue
+            self.homeView?.viewModel.extractGistID(url: stringValue)
         }
         
         // Go to "Comment on Gist UIViewController" on completion
@@ -77,7 +77,7 @@ class CodeScannerView: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
         })
     }
     
-    // MARK: IB actions
+    // MARK: - IB actions
     @IBAction func closeButtonPressed(_ sender: Any) {
         // No QR code scanned, just close the Popover
         dismiss(animated: true)

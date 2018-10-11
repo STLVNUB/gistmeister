@@ -11,7 +11,7 @@ import UIKit
 class GistViewModel: NSObject {
     // Class variables
     var gistModel: GitHubModelGist?
-    var qrString: String?
+    var gistID: String?
     
     func getGist(uid: String, completion: @escaping (String) -> ()) {
         TransactionManager.shared.getGist(uid: uid, completion: { json in
@@ -30,8 +30,8 @@ class GistViewModel: NSObject {
                 let model = GitHubModelGistDetails(fromJson: files[name!])
                 completion(model.filename)
                 
-                //print(model.content)
-                //print(self.gistModel?.comments)
+                print(model.content)
+                print(self.gistModel?.comments)
             }
         })
     }

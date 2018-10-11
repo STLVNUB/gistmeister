@@ -25,6 +25,8 @@
 		429CBF06216B7CFF00B2D7B1 /* GitHubModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CBF04216B7CFF00B2D7B1 /* GitHubModelUser.swift */; };
 		429CBF07216B7CFF00B2D7B1 /* GitHubModelUserPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429CBF05216B7CFF00B2D7B1 /* GitHubModelUserPlan.swift */; };
 		42A516EA216E1DFE0048EA30 /* GitHubModelGistDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A516E9216E1DFE0048EA30 /* GitHubModelGistDetails.swift */; };
+		42B797A4216F2B3B00F14712 /* GistCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42B797A3216F2B3B00F14712 /* GistCommentTableViewCell.xib */; };
+		42B797A8216F2C6E00F14712 /* GistCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B797A7216F2C6E00F14712 /* GistCommentTableViewCell.swift */; };
 		E0684E59CEB440D5E875DED8 /* Pods_Gist_Meister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162F913D74B5659C6B98E69A /* Pods_Gist_Meister.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		429CBF04216B7CFF00B2D7B1 /* GitHubModelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubModelUser.swift; sourceTree = "<group>"; };
 		429CBF05216B7CFF00B2D7B1 /* GitHubModelUserPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubModelUserPlan.swift; sourceTree = "<group>"; };
 		42A516E9216E1DFE0048EA30 /* GitHubModelGistDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubModelGistDetails.swift; sourceTree = "<group>"; };
+		42B797A3216F2B3B00F14712 /* GistCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GistCommentTableViewCell.xib; sourceTree = "<group>"; };
+		42B797A7216F2C6E00F14712 /* GistCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCommentTableViewCell.swift; sourceTree = "<group>"; };
 		6D9C08E72A8660EE29D3A48A /* Pods-Gist Meister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist Meister.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gist Meister/Pods-Gist Meister.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +124,7 @@
 		42206B70216E0ADD0016EA87 /* Gist */ = {
 			isa = PBXGroup;
 			children = (
+				42B797A6216F2C3C00F14712 /* Cell */,
 				42206B71216E0B020016EA87 /* GistView.swift */,
 				4292FD44216E7352008FA8FD /* GistViewModel.swift */,
 			);
@@ -138,8 +143,8 @@
 		42206B80216E0F900016EA87 /* Interface Builder */ = {
 			isa = PBXGroup;
 			children = (
-				421DB2D2216777040029BB85 /* Main.storyboard */,
 				421DB2D7216777060029BB85 /* LaunchScreen.storyboard */,
+				421DB2D2216777040029BB85 /* Main.storyboard */,
 			);
 			name = "Interface Builder";
 			sourceTree = "<group>";
@@ -177,6 +182,15 @@
 				429CBF05216B7CFF00B2D7B1 /* GitHubModelUserPlan.swift */,
 			);
 			name = User;
+			sourceTree = "<group>";
+		};
+		42B797A6216F2C3C00F14712 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				42B797A3216F2B3B00F14712 /* GistCommentTableViewCell.xib */,
+				42B797A7216F2C6E00F14712 /* GistCommentTableViewCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		42F5AB2E216B82A700E0827D /* View Controllers */ = {
@@ -269,6 +283,7 @@
 			files = (
 				421DB2D9216777060029BB85 /* LaunchScreen.storyboard in Resources */,
 				42465D9C216778450007E8D6 /* Assets.xcassets in Resources */,
+				42B797A4216F2B3B00F14712 /* GistCommentTableViewCell.xib in Resources */,
 				421DB2D4216777040029BB85 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +346,7 @@
 				42206B7B216E0C6D0016EA87 /* GitHubModelGist.swift in Sources */,
 				42206B72216E0B020016EA87 /* GistView.swift in Sources */,
 				429CBF06216B7CFF00B2D7B1 /* GitHubModelUser.swift in Sources */,
+				42B797A8216F2C6E00F14712 /* GistCommentTableViewCell.swift in Sources */,
 				4292FD45216E7352008FA8FD /* GistViewModel.swift in Sources */,
 				42952E13216C96CD00B19773 /* ThemeManager.swift in Sources */,
 				429A3628216DF6A500BE6831 /* Extensions.swift in Sources */,
