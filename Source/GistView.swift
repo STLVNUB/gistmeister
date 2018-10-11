@@ -116,6 +116,7 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         if let uid = self.viewModel.gistID {
             if self.userCommentTextField.text != "" {
                 TransactionManager.shared.postGistComment(uid: uid, text: self.userCommentTextField.text!, completion: { json in
+                    self.userCommentTextField.text = ""
                     self.getGistDetails()
                 })
             }
