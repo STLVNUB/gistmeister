@@ -98,7 +98,7 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view delegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80.0
+        return 90.0
     }
     
     func scrollToBottom() {
