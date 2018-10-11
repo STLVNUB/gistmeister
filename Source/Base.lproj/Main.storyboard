@@ -199,8 +199,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repos: -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKe-49-wbf">
-                                        <rect key="frame" x="15" y="110" width="122.5" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <rect key="frame" x="15" y="110" width="122.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="0.75132042249999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -224,8 +224,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers: -" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvh-z1-glZ">
-                                        <rect key="frame" x="237.5" y="110" width="122.5" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <rect key="frame" x="237.5" y="110" width="122.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="0.75132042249999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -472,6 +472,7 @@
                         <outlet property="gistContent" destination="ue6-Ul-Hel" id="7Se-RC-isk"/>
                         <outlet property="gistTitle" destination="pFn-sg-Fda" id="d8v-vX-WjT"/>
                         <outlet property="tableView" destination="bLs-HN-6e6" id="ChT-MT-Mus"/>
+                        <outlet property="userCommentTextField" destination="SN2-H7-bCQ" id="VQi-k4-wSE"/>
                         <outlet property="userImage" destination="ICp-hd-1mf" id="PLO-tv-fDE"/>
                     </connections>
                 </viewController>

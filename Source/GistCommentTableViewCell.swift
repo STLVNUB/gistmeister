@@ -10,6 +10,7 @@ import UIKit
 
 class GistCommentTableViewCell: UITableViewCell {
     // Interface outlets
+    @IBOutlet weak var labelUser: UILabel!
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var labelComment: UILabel!
     

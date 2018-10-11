@@ -18,8 +18,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created on" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wo-QY-HV9">
-                        <rect key="frame" x="15" y="15" width="67" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6a-tN-upQ">
+                        <rect key="frame" x="15" y="15" width="301.5" height="16"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                        <color key="textColor" red="0.69411764710000001" green="0.72549019609999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wo-QY-HV9">
+                        <rect key="frame" x="331.5" y="15" width="28.5" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.69411764710000001" green="0.72549019609999998" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -41,18 +47,23 @@
                 <color key="backgroundColor" red="0.16862745100000001" green="0.23921568630000001" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="3wo-QY-HV9" firstAttribute="top" secondItem="ig3-RP-bJh" secondAttribute="top" constant="15" id="3WV-QJ-Cd1"/>
-                    <constraint firstItem="3wo-QY-HV9" firstAttribute="leading" secondItem="ig3-RP-bJh" secondAttribute="leading" constant="15" id="3tM-Jz-j9H"/>
                     <constraint firstAttribute="bottom" secondItem="9dU-9X-1m7" secondAttribute="bottom" id="6hr-rO-RoT"/>
                     <constraint firstAttribute="bottom" secondItem="rC1-yr-paM" secondAttribute="bottom" constant="15" id="H09-Vw-O7L"/>
                     <constraint firstAttribute="trailing" secondItem="9dU-9X-1m7" secondAttribute="trailing" id="K7c-Pr-Siq"/>
                     <constraint firstAttribute="trailing" secondItem="rC1-yr-paM" secondAttribute="trailing" constant="15" id="NPA-gn-v90"/>
-                    <constraint firstItem="rC1-yr-paM" firstAttribute="leading" secondItem="3wo-QY-HV9" secondAttribute="leading" id="OoM-we-eth"/>
+                    <constraint firstItem="y6a-tN-upQ" firstAttribute="top" secondItem="ig3-RP-bJh" secondAttribute="top" constant="15" id="VOZ-gv-dRa"/>
+                    <constraint firstItem="rC1-yr-paM" firstAttribute="leading" secondItem="ig3-RP-bJh" secondAttribute="leading" constant="15" id="b6V-08-AgF"/>
+                    <constraint firstItem="y6a-tN-upQ" firstAttribute="leading" secondItem="ig3-RP-bJh" secondAttribute="leading" constant="15" id="gKL-yt-BHt"/>
+                    <constraint firstAttribute="trailing" secondItem="3wo-QY-HV9" secondAttribute="trailing" constant="15" id="jzB-Xb-WLt"/>
                     <constraint firstItem="9dU-9X-1m7" firstAttribute="leading" secondItem="ig3-RP-bJh" secondAttribute="leading" id="tCY-TK-gA5"/>
+                    <constraint firstItem="3wo-QY-HV9" firstAttribute="leading" secondItem="y6a-tN-upQ" secondAttribute="trailing" constant="15" id="zGh-zv-49Y"/>
+                    <constraint firstItem="y6a-tN-upQ" firstAttribute="height" secondItem="3wo-QY-HV9" secondAttribute="height" id="zVS-Cu-jrL"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="labelComment" destination="rC1-yr-paM" id="GvV-zA-9VI"/>
                 <outlet property="labelDate" destination="3wo-QY-HV9" id="d1Y-0Y-SMl"/>
+                <outlet property="labelUser" destination="y6a-tN-upQ" id="oJd-d6-AA0"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="70"/>
         </tableViewCell>

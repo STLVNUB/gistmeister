@@ -15,6 +15,7 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var gistTitle: UILabel!
     @IBOutlet weak var gistContent: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var userCommentTextField: UITextField!
     
     // Class variables
     let viewModel = GistViewModel()
@@ -37,12 +38,17 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         // ViewModel handling
+        getGistDetails()
+    }
+    
+    func getGistDetails() {
         if let uid = self.viewModel.gistID {
             self.viewModel.getGist(uid: uid, completion: { details in
                 self.gistTitle.text = details[0]
                 self.gistContent.text = details[1]
             }, completion2: {
                 self.tableView.reloadData()
+                self.scrollToBottom()
             })
         }
     }
@@ -78,7 +84,8 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cellGistComment", for: indexPath) as? GistCommentTableViewCell {
             
-            cell.labelDate.text = String(describing: "Created: \(self.viewModel.gistCommentsModelArray[indexPath.row].createdAt!)")
+            cell.labelUser.text = String(describing: "@\(self.viewModel.gistCommentsModelArray[indexPath.row].user.login!)")
+            cell.labelDate.text = String(describing: "Date: \(self.viewModel.gistCommentsModelArray[indexPath.row].createdAt!)")
             cell.labelComment.text = self.viewModel.gistCommentsModelArray[indexPath.row].body
             cell.selectionStyle = .none
             
@@ -94,8 +101,24 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return 80.0
     }
     
+    func scrollToBottom() {
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: self.viewModel.gistCommentsModelArray.count-1, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
+    }
+    
     // MARK: - IB actions
     @IBAction func sendButtonPressed(_ sender: Any) {
         self.view.endEditing(true)
+        
+        // Post comment
+        if let uid = self.viewModel.gistID {
+            if self.userCommentTextField.text != "" {
+                TransactionManager.shared.postGistComment(uid: uid, text: self.userCommentTextField.text!, completion: { json in
+                    self.getGistDetails()
+                })
+            }
+        }
     }
 }

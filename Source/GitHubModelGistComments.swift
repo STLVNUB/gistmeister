@@ -15,6 +15,7 @@ class GitHubModelGistComments : NSObject, NSCoding{
 	var nodeId : String!
 	var updatedAt : String!
 	var url : String!
+    var user : GitHubModelUser!
     
 	/**
 	 * Instantiate the instance using the passed json values to set the properties values
@@ -30,6 +31,10 @@ class GitHubModelGistComments : NSObject, NSCoding{
 		nodeId = json["node_id"].stringValue
 		updatedAt = json["updated_at"].stringValue
 		url = json["url"].stringValue
+        let userJson = json["user"]
+        if !userJson.isEmpty{
+            user = GitHubModelUser(fromJson: userJson)
+        }
 	}
     
 	/**
@@ -59,6 +64,9 @@ class GitHubModelGistComments : NSObject, NSCoding{
 		if url != nil{
 			dictionary["url"] = url
 		}
+        if user != nil{
+            dictionary["user"] = user.toDictionary()
+        }
 		return dictionary
 	}
     
@@ -75,6 +83,7 @@ class GitHubModelGistComments : NSObject, NSCoding{
          nodeId = aDecoder.decodeObject(forKey: "node_id") as? String
          updatedAt = aDecoder.decodeObject(forKey: "updated_at") as? String
          url = aDecoder.decodeObject(forKey: "url") as? String
+         user = aDecoder.decodeObject(forKey: "user") as? GitHubModelUser
 	}
     
     /**
@@ -104,5 +113,8 @@ class GitHubModelGistComments : NSObject, NSCoding{
 		if url != nil{
 			aCoder.encode(url, forKey: "url")
 		}
+        if user != nil{
+            aCoder.encode(user, forKey: "user")
+        }
 	}
 }

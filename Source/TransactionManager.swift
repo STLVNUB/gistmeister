@@ -27,6 +27,8 @@ class TransactionManager: NSObject {
     func processResponse(_ description: String, statusCode: Int, data: Data, completion: (JSON) -> ()) {
         switch(statusCode) {
         case 200:
+            fallthrough
+        case 201:
             // Hide progress indicator
             SVProgressHUD.dismiss()
             
@@ -43,7 +45,7 @@ class TransactionManager: NSObject {
         }
     }
     
-    // RESTful API: User Authentication
+    // RESTful API: Get Authenticated User
     func getAuthenticatedUser(username: String, password: String, completion: @escaping (JSON) -> ()) {
         invokeSVProgressHUD()
         
@@ -54,41 +56,54 @@ class TransactionManager: NSObject {
         // Make the Authentication request
         Alamofire.request("\(self.apiURL)/user", headers: self.authenticationHeaders).responseJSON { response in
             if let statusCode = response.response?.statusCode, let data = response.data {
-                self.processResponse("Authentication", statusCode: statusCode, data: data, completion: completion)
+                self.processResponse("Get Authenticated User", statusCode: statusCode, data: data, completion: completion)
             }
         }
     }
     
-    // RESTful API: Gist
+    // RESTful API: Get Gist
     func getGist(uid: String, completion: @escaping (JSON) -> ()) {
         invokeSVProgressHUD()
         
         // Prepare request URL
         let url = String(describing: "\(self.apiURL)/gists/\(uid)")
         
-        // Encode user credentials
-//        let base64  = Data("dkoluris:HAHA123qwe!@".utf8).base64EncodedString()
-//        self.authenticationHeaders = ["Authorization": "Basic \(base64)"]
-        
         // Make the Authentication request
         Alamofire.request(url, headers: self.authenticationHeaders).responseJSON { response in
             if let statusCode = response.response?.statusCode, let data = response.data {
-                self.processResponse("Gist", statusCode: statusCode, data: data, completion: completion)
+                self.processResponse("Get Gist", statusCode: statusCode, data: data, completion: completion)
             }
         }
     }
     
-    // RESTful API: Gist Comments
+    // RESTful API: Get Gist Comments
     func getGistComments(uid: String, completion: @escaping (JSON) -> ()) {
         invokeSVProgressHUD()
         
         // Prepare request URL
         let url = String(describing: "\(self.apiURL)/gists/\(uid)/comments")
+        URLCache.shared = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
         
         // Make the Authentication request
         Alamofire.request(url, headers: self.authenticationHeaders).responseJSON { response in
             if let statusCode = response.response?.statusCode, let data = response.data {
-                self.processResponse("Gist Comments", statusCode: statusCode, data: data, completion: completion)
+                self.processResponse("Get Gist Comments", statusCode: statusCode, data: data, completion: completion)
+            }
+        }
+    }
+    
+    // RESTful API: Post a Gist Comment
+    func postGistComment(uid: String, text: String, completion: @escaping (JSON) -> ()) {
+        invokeSVProgressHUD()
+        
+        // Prepare request URL & body
+        let url = String(describing: "\(self.apiURL)/gists/\(uid)/comments")
+        let params = ["body": text]
+        
+        // Make the Authentication request
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: self.authenticationHeaders).responseJSON { response in
+            if let statusCode = response.response?.statusCode, let data = response.data {
+                self.processResponse("Post a Gist Comment", statusCode: statusCode, data: data, completion: completion)
             }
         }
     }

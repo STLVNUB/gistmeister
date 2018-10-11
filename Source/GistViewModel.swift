@@ -30,7 +30,7 @@ class GistViewModel: NSObject {
                 
                 if let uid = self.gistID {
                     TransactionManager.shared.getGistComments(uid: uid, completion: { json in
-                        //self.gistCommentsModel = GitHubModelGistComments(fromJson: json)
+                        self.gistCommentsModelArray = []
                         
                         for (_, body) in json {
                             self.gistCommentsModelArray.append(GitHubModelGistComments(fromJson: body))
