@@ -83,5 +83,8 @@ class LoginView: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func reminderButtonPressed(_ sender: Any) {
+        if let url = URL(string: "https://github.com/password_reset") {
+            UIApplication.shared.open(url, options: [:])
+        }
     }
 }
