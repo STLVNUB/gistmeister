@@ -4,7 +4,11 @@
 
 <h2>Showcase</h2>
 
-<img alt="Screenshot 1" src="https://raw.githubusercontent.com/dkoluris/gistmeister/master/Screenshots/1.png" width="24%"/><img alt="Screenshot 2" src="https://raw.githubusercontent.com/dkoluris/gistmeister/master/Screenshots/2.png" width="24%" align="right"/><img alt="Screenshot 3" src="https://raw.githubusercontent.com/dkoluris/gistmeister/master/Screenshots/3.png" width="24%" align="right"/><img alt="Screenshot 4" src="https://raw.githubusercontent.com/dkoluris/gistmeister/master/Screenshots/4.png" width="24%" align="right"/>
+<center>
+<img alt="Screenshot 1" src="https://raw.githubusercontent.com/dkoluris/gistmeister/master/Screenshots/1.png" width="24.5%"/><img alt="Screenshot 2" src="https://raw.githubusercontent.com/dkoluris/gistmeister/master/Screenshots/2.png" width="24.5%"/>
+
+<img alt="Screenshot 3" src="https://raw.githubusercontent.com/dkoluris/gistmeister/master/Screenshots/3.png" width="24.5%"/><img alt="Screenshot 4" src="https://raw.githubusercontent.com/dkoluris/gistmeister/master/Screenshots/4.png" width="24.5%"/>
+</center>
 
 <h2>Source Code</h2>
 
