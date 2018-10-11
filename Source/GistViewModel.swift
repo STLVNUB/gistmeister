@@ -10,13 +10,11 @@ import UIKit
 
 class GistViewModel: NSObject {
     // Class variables
-    var gistModel: GitHubModelGist?
+    var gistCommentsModelArray = [GitHubModelGistComments]()
     var gistID: String?
     
-    func getGist(uid: String, completion: @escaping ([String]) -> ()) {
+    func getGist(uid: String, completion: @escaping ([String]) -> (), completion2: @escaping () -> ()) {
         TransactionManager.shared.getGist(uid: uid, completion: { json in
-            //self.gistModel = GitHubModelGist(fromJson: json)
-            
             // Get named parameter
             let files = json["files"]
             var name: String?
@@ -30,12 +28,15 @@ class GistViewModel: NSObject {
                 let model = GitHubModelGistDetails(fromJson: files[name!])
                 completion([model.filename, model.content])
                 
-                //print(model.content)
-                //print(self.gistModel?.comments)
-                
                 if let uid = self.gistID {
                     TransactionManager.shared.getGistComments(uid: uid, completion: { json in
-                        print(json)
+                        //self.gistCommentsModel = GitHubModelGistComments(fromJson: json)
+                        
+                        for (_, body) in json {
+                            self.gistCommentsModelArray.append(GitHubModelGistComments(fromJson: body))
+                        }
+                        
+                        completion2()
                     })
                 }
             }

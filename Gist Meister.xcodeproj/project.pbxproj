@@ -27,6 +27,7 @@
 		42A516EA216E1DFE0048EA30 /* GitHubModelGistDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A516E9216E1DFE0048EA30 /* GitHubModelGistDetails.swift */; };
 		42B797A4216F2B3B00F14712 /* GistCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42B797A3216F2B3B00F14712 /* GistCommentTableViewCell.xib */; };
 		42B797A8216F2C6E00F14712 /* GistCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B797A7216F2C6E00F14712 /* GistCommentTableViewCell.swift */; };
+		42B797AF216F4B6D00F14712 /* GitHubModelGistComments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B797AE216F4B6D00F14712 /* GitHubModelGistComments.swift */; };
 		E0684E59CEB440D5E875DED8 /* Pods_Gist_Meister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 162F913D74B5659C6B98E69A /* Pods_Gist_Meister.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		42A516E9216E1DFE0048EA30 /* GitHubModelGistDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubModelGistDetails.swift; sourceTree = "<group>"; };
 		42B797A3216F2B3B00F14712 /* GistCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GistCommentTableViewCell.xib; sourceTree = "<group>"; };
 		42B797A7216F2C6E00F14712 /* GistCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCommentTableViewCell.swift; sourceTree = "<group>"; };
+		42B797AE216F4B6D00F14712 /* GitHubModelGistComments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubModelGistComments.swift; sourceTree = "<group>"; };
 		6D9C08E72A8660EE29D3A48A /* Pods-Gist Meister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gist Meister.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gist Meister/Pods-Gist Meister.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +173,7 @@
 			children = (
 				429CBF08216B7E1300B2D7B1 /* User */,
 				42206B73216E0C530016EA87 /* Gist */,
+				42B797A9216F490A00F14712 /* Gist Comments */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -191,6 +194,14 @@
 				42B797A7216F2C6E00F14712 /* GistCommentTableViewCell.swift */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		42B797A9216F490A00F14712 /* Gist Comments */ = {
+			isa = PBXGroup;
+			children = (
+				42B797AE216F4B6D00F14712 /* GitHubModelGistComments.swift */,
+			);
+			name = "Gist Comments";
 			sourceTree = "<group>";
 		};
 		42F5AB2E216B82A700E0827D /* View Controllers */ = {
@@ -340,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42B797AF216F4B6D00F14712 /* GitHubModelGistComments.swift in Sources */,
 				421DB2D1216777040029BB85 /* LoginView.swift in Sources */,
 				4258080A216DDBB40041F605 /* CodeScannerView.swift in Sources */,
 				42952E11216C90FF00B19773 /* HomeView.swift in Sources */,

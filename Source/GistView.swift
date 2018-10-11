@@ -28,7 +28,6 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         // Register sport cell
         self.tableView.register(UINib(nibName: "GistCommentTableViewCell", bundle: nil), forCellReuseIdentifier: "cellGistComment")
-        //self.tableView.reloadData()
         
         // Cool looking UIImageView effect
         self.userImage.frostedGlassView()
@@ -42,6 +41,8 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
             self.viewModel.getGist(uid: uid, completion: { details in
                 self.gistTitle.text = details[0]
                 self.gistContent.text = details[1]
+            }, completion2: {
+                self.tableView.reloadData()
             })
         }
     }
@@ -71,11 +72,16 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.viewModel.gistCommentsModelArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cellGistComment", for: indexPath) as? GistCommentTableViewCell {
+            
+            cell.labelDate.text = String(describing: "Created: \(self.viewModel.gistCommentsModelArray[indexPath.row].createdAt!)")
+            cell.labelComment.text = self.viewModel.gistCommentsModelArray[indexPath.row].body
+            cell.selectionStyle = .none
+            
             return cell
         }
         
@@ -85,7 +91,7 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view delegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70.0
+        return 80.0
     }
     
     // MARK: - IB actions
