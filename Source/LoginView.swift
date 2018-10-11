@@ -33,9 +33,6 @@ class LoginView: UIViewController, UITextFieldDelegate {
         
         // Delegates
         self.passwordTextfield.delegate = self
-        
-        // Remove this
-        //self.performSegue(withIdentifier: "segueToHome", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
