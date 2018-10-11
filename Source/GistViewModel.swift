@@ -13,9 +13,9 @@ class GistViewModel: NSObject {
     var gistModel: GitHubModelGist?
     var gistID: String?
     
-    func getGist(uid: String, completion: @escaping (String) -> ()) {
+    func getGist(uid: String, completion: @escaping ([String]) -> ()) {
         TransactionManager.shared.getGist(uid: uid, completion: { json in
-            self.gistModel = GitHubModelGist(fromJson: json)
+            //self.gistModel = GitHubModelGist(fromJson: json)
             
             // Get named parameter
             let files = json["files"]
@@ -28,10 +28,16 @@ class GistViewModel: NSObject {
             
             if name != nil {
                 let model = GitHubModelGistDetails(fromJson: files[name!])
-                completion(model.filename)
+                completion([model.filename, model.content])
                 
-                print(model.content)
-                print(self.gistModel?.comments)
+                //print(model.content)
+                //print(self.gistModel?.comments)
+                
+                if let uid = self.gistID {
+                    TransactionManager.shared.getGistComments(uid: uid, completion: { json in
+                        print(json)
+                    })
+                }
             }
         })
     }

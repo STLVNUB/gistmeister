@@ -13,6 +13,7 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // Interface outlets
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var gistTitle: UILabel!
+    @IBOutlet weak var gistContent: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     // Class variables
@@ -38,8 +39,9 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         // ViewModel handling
         if let uid = self.viewModel.gistID {
-            self.viewModel.getGist(uid: uid, completion: { title in
-                self.gistTitle.text = title
+            self.viewModel.getGist(uid: uid, completion: { details in
+                self.gistTitle.text = details[0]
+                self.gistContent.text = details[1]
             })
         }
     }
