@@ -85,7 +85,7 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cellGistComment", for: indexPath) as? GistCommentTableViewCell {
             
             cell.labelUser.text = String(describing: "@\(self.viewModel.gistCommentsModelArray[indexPath.row].user.login!)")
-            cell.labelDate.text = String(describing: "Date: \(self.viewModel.gistCommentsModelArray[indexPath.row].createdAt!)")
+            cell.labelDate.text = self.viewModel.gistCommentsModelArray[indexPath.row].createdAt!.UTCToLocal()
             cell.labelComment.text = self.viewModel.gistCommentsModelArray[indexPath.row].body
             cell.selectionStyle = .none
             
