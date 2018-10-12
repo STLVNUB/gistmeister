@@ -46,12 +46,24 @@ class GistViewModel: NSObject {
                     })
                 }
                 else {
-                    // Unhandled case, present user with an error
+                    // Unlikely, present user with an error
                 }
             }
             else {
-                // Unhandled case, present user with an error
+                // Unlikely, present user with an error
             }
         })
+    }
+    
+    func parseUsername(_ row: Int) -> String {
+        return String(describing: "@\(self.gistCommentsModelArray[row].user.login!)")
+    }
+    
+    func parseDate(_ row: Int) -> String {
+        return self.gistCommentsModelArray[row].createdAt!.UTCToLocal()
+    }
+    
+    func parseComment(_ row: Int) -> String {
+        return self.gistCommentsModelArray[row].body
     }
 }

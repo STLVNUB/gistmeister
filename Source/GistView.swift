@@ -74,6 +74,7 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        // We just have one section as per requirements
         return "Comments"
     }
     
@@ -83,15 +84,18 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cellGistComment", for: indexPath) as? GistCommentTableViewCell {
+            // Get proper formatted data from ViewModel
+            cell.labelUser.text = self.viewModel.parseUsername(indexPath.row)
+            cell.labelDate.text = self.viewModel.parseDate(indexPath.row)
+            cell.labelComment.text = self.viewModel.parseComment(indexPath.row)
             
-            cell.labelUser.text = String(describing: "@\(self.viewModel.gistCommentsModelArray[indexPath.row].user.login!)")
-            cell.labelDate.text = self.viewModel.gistCommentsModelArray[indexPath.row].createdAt!.UTCToLocal()
-            cell.labelComment.text = self.viewModel.gistCommentsModelArray[indexPath.row].body
+            // Customization of cell
             cell.selectionStyle = .none
             
             return cell
         }
         
+        // Unlikely
         return UITableViewCell()
     }
     
@@ -116,6 +120,7 @@ class GistView: UIViewController, UITableViewDataSource, UITableViewDelegate {
         if let uid = self.viewModel.gistID {
             if self.userCommentTextField.text != "" {
                 TransactionManager.shared.postGistComment(uid: uid, text: self.userCommentTextField.text!, completion: { json in
+                    // Reset textfield and get all details
                     self.userCommentTextField.text = ""
                     self.getGistDetails()
                 })
